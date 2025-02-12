@@ -1,7 +1,7 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1739358549
-icon.svg::CompressedTexture2D::6969094031103861688::1739260287::1739358549::1::::<><>::
-Label.cs::CSharpScript::-1::1739357067::0::1::::<><>::
+::res://::1739365577
+icon.svg::CompressedTexture2D::6969094031103861688::1739365577::1739365642::1::::<><>::
+Label.cs::CSharpScript::-1::1739365577::0::1::::<><>::
 main.cs::CSharpScript::-1::1739280080::0::1::::<><>::
 playground.tscn::PackedScene::396891955061223819::1739357072::0::1::::<><>::uid://c6j47wlj6a6wa::::res://icon.svg<>res://Sprite2d.cs<>res://Label.cs
-Sprite2d.cs::CSharpScript::-1::1739356109::0::1::::<><>::
+Sprite2d.cs::CSharpScript::-1::1739365577::0::1::::<><>::
