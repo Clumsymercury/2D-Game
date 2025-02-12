@@ -15,7 +15,7 @@ position = Vector2(32, 10)
 shape = SubResource("CircleShape2D_0vfo1")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-position = Vector2(249, 2)
+position = Vector2(175, 85)
 texture = ExtResource("1_rpdx0")
 script = ExtResource("2_c4coe")
 
