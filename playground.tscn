@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://fwi0t51rej8v"]
+
+[ext_resource type="Texture2D" uid="uid://c6j47wlj6a6wa" path="res://icon.svg" id="1_rpdx0"]
+[ext_resource type="Script" path="res://Sprite2d.cs" id="2_c4coe"]
+[ext_resource type="Script" path="res://Label.cs" id="3_2mpcp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0vfo1"]
+
+[node name="Playground" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(32, 10)
+shape = SubResource("CircleShape2D_0vfo1")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(249, 2)
+texture = ExtResource("1_rpdx0")
+script = ExtResource("2_c4coe")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 544.0
+offset_top = 285.0
+offset_right = 846.0
+offset_bottom = 495.0
+text = "text
+"
+script = ExtResource("3_2mpcp")
