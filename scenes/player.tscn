@@ -1,35 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://ca1tmo0gwa3hu"]
+[gd_scene load_steps=6 format=3 uid="uid://ca1tmo0gwa3hu"]
 
 [ext_resource type="Script" path="res://Player.cs" id="1_fk38b"]
 [ext_resource type="Texture2D" uid="uid://bdubbdtbrruop" path="res://Assets/gfx/character.png" id="2_vxsdo"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qqogo"]
-atlas = ExtResource("2_vxsdo")
-region = Rect2(0, 64, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nx5u4"]
-atlas = ExtResource("2_vxsdo")
-region = Rect2(0, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_osddd"]
-atlas = ExtResource("2_vxsdo")
-region = Rect2(0, 96, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2qft3"]
-atlas = ExtResource("2_vxsdo")
-region = Rect2(0, 32, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ddpj1"]
-atlas = ExtResource("2_vxsdo")
-region = Rect2(16, 32, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_b46e3"]
-atlas = ExtResource("2_vxsdo")
-region = Rect2(32, 32, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j41ug"]
-atlas = ExtResource("2_vxsdo")
-region = Rect2(48, 32, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_etq6s"]
 atlas = ExtResource("2_vxsdo")
@@ -39,67 +11,50 @@ region = Rect2(0, 32, 16, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qqogo")
-}],
-"loop": true,
-"name": &"back_idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nx5u4")
-}],
-"loop": true,
-"name": &"front_idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_osddd")
-}],
-"loop": true,
-"name": &"left_idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2qft3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ddpj1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_b46e3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j41ug")
-}],
-"loop": true,
-"name": &"move_right",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_etq6s")
 }],
 "loop": true,
+"name": &"(right_idle) old version",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"down_idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"left_idle(he looks up)  behind",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
 "name": &"right_idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"up_idle",
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_pbsef"]
-radius = 9.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_seako"]
+radius = 5.0
+height = 16.0
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="player" type="CharacterBody2D"]
+collision_mask = 14
 script = ExtResource("1_fk38b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2gt0l")
-animation = &"right_idle"
+animation = &"left_idle(he looks up)  behind"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
-shape = SubResource("CircleShape2D_pbsef")
+position = Vector2(1, -1)
+shape = SubResource("CapsuleShape2D_seako")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
+zoom = Vector2(4, 4)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0

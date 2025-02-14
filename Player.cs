@@ -6,7 +6,7 @@ public partial class Player : CharacterBody2D
 {
     // Called every frame. 'delta' is the elapsed time since the previous frame.
 	private Vector2 Direction;
-	private float Speed = 200;
+	private float Speed = 100;
 
     public override void _Input(InputEvent @event)
     {
@@ -21,3 +21,5 @@ public partial class Player : CharacterBody2D
 		MoveAndSlide();
     }
 }
+
+
