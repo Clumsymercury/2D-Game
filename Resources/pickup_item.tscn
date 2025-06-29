@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://f58ibofdiba3"]
+
+[node name="PickUpItem" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]

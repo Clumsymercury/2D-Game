@@ -88,19 +88,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Olive\\.nuget\\packages\\": {}
+    "C:\\Users\\alexg\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Olive\\2D-Game\\2D Game with Oliver TM.csproj",
+      "projectUniqueName": "C:\\Users\\alexg\\OneDrive\\Documents\\2D-Game\\2D-Game\\2D Game with Oliver TM.csproj",
       "projectName": "2D Game with Oliver TM",
-      "projectPath": "C:\\Users\\Olive\\2D-Game\\2D Game with Oliver TM.csproj",
-      "packagesPath": "C:\\Users\\Olive\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Olive\\2D-Game\\.godot\\mono\\temp\\obj\\",
+      "projectPath": "C:\\Users\\alexg\\OneDrive\\Documents\\2D-Game\\2D-Game\\2D Game with Oliver TM.csproj",
+      "packagesPath": "C:\\Users\\alexg\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\alexg\\OneDrive\\Documents\\2D-Game\\2D-Game\\.godot\\mono\\temp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Olive\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\alexg\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
