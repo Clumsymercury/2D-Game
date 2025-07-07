@@ -99,11 +99,12 @@ _data = {
 "walk up": SubResource("Animation_x6vep")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_seako"]
-radius = 5.81904
-height = 12.2238
+[sub_resource type="CircleShape2D" id="CircleShape2D_wwhab"]
+radius = 8.02173
 
 [node name="player" type="CharacterBody2D"]
+visibility_layer = 15
+collision_layer = 3
 collision_mask = 14
 script = ExtResource("1_fk38b")
 
@@ -124,7 +125,7 @@ position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 5)
+position = Vector2(-9.09495e-13, 4)
 rotation = 3.14159
 scale = Vector2(1.0311, 0.490846)
-shape = SubResource("CapsuleShape2D_seako")
+shape = SubResource("CircleShape2D_wwhab")
