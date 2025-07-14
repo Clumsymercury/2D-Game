@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cww4k440487tl"
-path="res://.godot/imported/chomp_idle.png-d98a138ae98e6ba1f7c4f2697bec0c32.ctex"
+uid="uid://b3e60vbby0pwo"
+path="res://.godot/imported/all_swords.png-2733baf6e6f90e9818a510b0aeb3cfa6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://chomp_idle.png"
-dest_files=["res://.godot/imported/chomp_idle.png-d98a138ae98e6ba1f7c4f2697bec0c32.ctex"]
+source_file="res://Assets/gfx/all_swords.png"
+dest_files=["res://.godot/imported/all_swords.png-2733baf6e6f90e9818a510b0aeb3cfa6.ctex"]
 
 [params]
 

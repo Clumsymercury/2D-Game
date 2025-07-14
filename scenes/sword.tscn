@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://di7m4hje7yma4"]
+
+[ext_resource type="Script" path="res://scenes/Sword.cs" id="1_3arwv"]
+[ext_resource type="Texture2D" uid="uid://b3e60vbby0pwo" path="res://Assets/gfx/all_swords.png" id="2_73pr2"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_cejcc"]
+a = Vector2(3, -2.375)
+b = Vector2(-7, 7.625)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lopr5"]
+atlas = ExtResource("2_73pr2")
+region = Rect2(0, 0, 31, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_serru"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lopr5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Sprite2D" type="Sprite2D"]
+script = ExtResource("1_3arwv")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -0.625)
+shape = SubResource("SegmentShape2D_cejcc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.46875)
+sprite_frames = SubResource("SpriteFrames_serru")

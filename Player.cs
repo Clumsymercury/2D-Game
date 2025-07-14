@@ -12,6 +12,7 @@ public partial class Player : CharacterBody2D
 	{
 		// Get the AnimationPlayer node (make sure it's named exactly "AnimationPlayer")
 		animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
+		_sword = GetNode<Sword>("Sword");
 	}
 
 	public override void _Input(InputEvent @event)
@@ -46,5 +47,32 @@ public partial class Player : CharacterBody2D
 			animationPlayer.Stop();
 		}
 	}
+	//test depee
+	private Sword _sword;
+
+    
+
+    public override void _Process(double delta)
+    {
+        if (Input.IsActionJustPressed("attack"))
+            _sword.Attack();
+
+        Vector2 dir = new Vector2();
+
+		if (Input.IsActionPressed("ui_right"))
+    		dir.X += 1;
+		if (Input.IsActionPressed("ui_left"))
+    		dir.X -= 1;
+		if (Input.IsActionPressed("ui_down"))
+   			dir.Y += 1;
+		if (Input.IsActionPressed("ui_up"))
+    		dir.Y -= 1;
+
+        if (dir != Vector2.Zero)
+        {
+            _sword.Rotation = dir.Angle();
+            _sword.Position = dir.Normalized() * 16;
+        }
+    }
 }
 
