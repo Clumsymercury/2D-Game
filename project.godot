@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="2D Game with Oliver TM"
-run/main_scene="res://playground.tscn"
+run/main_scene="res://scenes/playground.tscn"
 config/features=PackedStringArray("4.3", "C#", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Assets/gfx/icon.svg"
+
+[autoload]
+
+Globall="*res://scripts/globall.cs"
 
 [dotnet]
 

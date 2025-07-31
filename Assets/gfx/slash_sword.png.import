@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bq77svxq6cjc"
-path="res://.godot/imported/slime.png-9d614d234157d841fd715094a50092e8.ctex"
+uid="uid://cvckfnt3v7fvm"
+path="res://.godot/imported/slash_sword.png-1a3e71f27151db459a90ecdd9c470397.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://slime.png"
-dest_files=["res://.godot/imported/slime.png-9d614d234157d841fd715094a50092e8.ctex"]
+source_file="res://Assets/gfx/slash_sword.png"
+dest_files=["res://.godot/imported/slash_sword.png-1a3e71f27151db459a90ecdd9c470397.ctex"]
 
 [params]
 
