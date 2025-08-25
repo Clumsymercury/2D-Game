@@ -2,8 +2,8 @@ using Godot;
 using System;
 
 public partial class Ennemy : CharacterBody2D
-{   
-    
+{
+
     [Export]
     public float Speed = 40f;
 
@@ -12,12 +12,19 @@ public partial class Ennemy : CharacterBody2D
 
     public float health = 100f;
     private bool player_inattack_zone = false;
-    
-    
 
+    private bool can_take_damage = true;
+
+    private ProgressBar healthbar;
+
+    public override void _Ready()
+    {
+        GetNode<Timer>("take_damage_cooldown").Timeout += OnTakeDamageCooldownTimeout;
+        healthbar = GetNode<ProgressBar>("healthbar");
+    }
     public override void _PhysicsProcess(double delta)
     {
-
+        UpdateHealth();
         deal_with_damage();
 
         if (playerChase && player != null)
@@ -73,13 +80,18 @@ public partial class Ennemy : CharacterBody2D
             player_inattack_zone = true;
         }
     }
-    
+
     public void _on_ennemy_hitbox_body_exited(Node2D body)
     {
         if (body.HasMethod("player"))
         {
             player_inattack_zone = false;
         }
+    }
+    private void OnTakeDamageCooldownTimeout()
+    {
+        GD.Print("Enemy can take damage again");
+        can_take_damage = true;
     }
     public void deal_with_damage()
     {
@@ -88,14 +100,32 @@ public partial class Ennemy : CharacterBody2D
 
         if (player_inattack_zone && globalInstance.player_current_attack)
         {
-            health = health - 20;
-            GD.Print("slime health = ", health);
-            if (health <= 0)
+            if (can_take_damage == true)
             {
-                QueueFree();
+                health = health - 20;
+                GetNode<Timer>("take_damage_cooldown").Start();
+                can_take_damage = false;
+                GD.Print("slime health = ", health);
+                if (health <= 0)
+                {
+                    QueueFree();
+                }
             }
         }
     }
+    private void UpdateHealth()
+    {
+        healthbar.Value = health;
+        if (health >= 100)
+        {
+            healthbar.Visible = false;
+        }
+        else
+        {
+            healthbar.Visible = true;
+        }
+    }
+    
 }
 
 

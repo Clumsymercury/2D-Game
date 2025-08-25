@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1753981380
+::res://::1756153550
 ennemy.tscn::PackedScene::7808010157384716029::1752774040::0::1::::<><>::res://scripts/Ennemy.cs<>uid://bq77svxq6cjc::::res://Assets/gfx/slime.png
 ::res://Assets/::1750163626
 ::res://Assets/gfx/::1753472110
@@ -18,22 +18,22 @@ objects.png::CompressedTexture2D::6746064992014351160::1750163626::1751234165::1
 Overworld.png::CompressedTexture2D::7969141680801099576::1750163626::1751234165::1::::<><>::
 slash_sword.png::CompressedTexture2D::6251552651646545786::1752777159::1752777159::1::::<><>::
 slime.png::CompressedTexture2D::105219955805284820::1751895634::1752774040::1::::<><>::
-::res://Resources/::1753473658
+::res://Resources/::1756031085
 Apple.tres::Resource::917887588814955177::1751234124::0::1::::<><>::res://scripts/inventory_item.cs
-pickup_item.tscn::PackedScene::414893572306601392::1753473658::0::1::::<><>::
-::res://scenes/::1753473658
+pickup_item.tscn::PackedScene::414893572306601392::1756031085::0::1::::<><>::
+::res://scenes/::1756031085
 character_body_2d.tscn::PackedScene::1529390050618641905::1752774275::0::1::::<><>::res://scripts/Player.cs<>uid://bdubbdtbrruop::::res://Assets/gfx/character.png
-ennemy.tscn::PackedScene::7413025099643260991::1753473658::0::1::::<><>::res://scripts/Ennemy.cs<>uid://bq77svxq6cjc::::res://Assets/gfx/slime.png
-ennemy_2.tscn::PackedScene::4390461327694746638::1753473658::0::1::::<><>::res://scripts/Ennemy2.cs<>uid://bchskf8cga1fo::::res://Assets/gfx/log.png
-player.tscn::PackedScene::4827691015630234834::1753473658::0::1::::<><>::res://scripts/Player.cs<>uid://blcqd7alqkofl::::res://Assets/gfx/NewPlayer.png<>uid://bqqdwpag6sa0l::::res://Assets/gfx/New Piskel.png
-playground.tscn::PackedScene::396891955061223819::1753473657::0::1::::<><>::uid://c6j47wlj6a6wa::::res://Assets/gfx/icon.svg<>res://scripts/Sprite2d.cs<>res://scripts/Label.cs<>uid://dlskumwbj6s7i::::res://Assets/gfx/Overworld.png<>uid://ddu6o8a58nhsh::::res://scenes/ennemy.tscn<>uid://ca1tmo0gwa3hu::::res://scenes/player.tscn<>uid://b3s1iyv52boew::::res://scenes/ennemy_2.tscn
+ennemy.tscn::PackedScene::7413025099643260991::1756031085::0::1::::<><>::res://scripts/Ennemy.cs<>uid://bq77svxq6cjc::::res://Assets/gfx/slime.png
+ennemy_2.tscn::PackedScene::4390461327694746638::1756031085::0::1::::<><>::res://scripts/Ennemy2.cs<>uid://bchskf8cga1fo::::res://Assets/gfx/log.png
+player.tscn::PackedScene::4827691015630234834::1756031085::0::1::::<><>::res://scripts/Player.cs<>uid://blcqd7alqkofl::::res://Assets/gfx/NewPlayer.png<>uid://bqqdwpag6sa0l::::res://Assets/gfx/New Piskel.png
+playground.tscn::PackedScene::396891955061223819::1756031084::0::1::::<><>::uid://c6j47wlj6a6wa::::res://Assets/gfx/icon.svg<>res://scripts/Sprite2d.cs<>res://scripts/Label.cs<>uid://dlskumwbj6s7i::::res://Assets/gfx/Overworld.png<>uid://ddu6o8a58nhsh::::res://scenes/ennemy.tscn<>uid://ca1tmo0gwa3hu::::res://scenes/player.tscn<>uid://b3s1iyv52boew::::res://scenes/ennemy_2.tscn
 ::res://scripts/::1752774275
 CollisionShape2d.cs::CSharpScript::-1::1751922678::0::1::::<>CollisionShape2D<>::
 Ennemy2.cs::CSharpScript::-1::1752772113::0::1::::<>CharacterBody2D<>::
-Ennemy.cs::CSharpScript::-1::1753472065::0::1::::<>CharacterBody2D<>::
+Ennemy.cs::CSharpScript::-1::1753989459::0::1::::<>CharacterBody2D<>::
 globall.cs::CSharpScript::-1::1753462298::0::1::::<>Node<>::
 inventory_item.cs::CSharpScript::-1::1751234124::0::1::::<><>::
 Label.cs::CSharpScript::-1::1751233885::0::1::::<>Label<>::
 main.cs::CSharpScript::-1::1739370048::0::1::::<><>::
-Player.cs::CSharpScript::-1::1753473623::0::1::::<>CharacterBody2D<>::
+Player.cs::CSharpScript::-1::1755275553::0::1::::<>CharacterBody2D<>::
 Sprite2d.cs::CSharpScript::-1::1751919475::0::1::::<>Node2D<>::

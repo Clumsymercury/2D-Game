@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 
 public partial class Player : CharacterBody2D
 {
-    [Export] 
+    [Export]
     private AnimatedSprite2D anim;
 
     private Vector2 Direction;
@@ -23,8 +23,11 @@ public partial class Player : CharacterBody2D
     private string lastAnimation = "walk_down_right";
     private AnimatedSprite2D slashAnim;//
 
+    private globall globalInstance;//
     public override void _Ready()
     {
+
+
         anim = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
         GetNode<Timer>("attack_cooldown").Start();
 
@@ -33,6 +36,8 @@ public partial class Player : CharacterBody2D
 
         // Connect the signal
         slashAnim.AnimationFinished += OnSlashAnimationFinished;
+
+        globalInstance = GetNode<globall>("/root/Globall");//
     }
 
     public override void _Input(InputEvent @event)
@@ -43,6 +48,8 @@ public partial class Player : CharacterBody2D
 
     public override void _PhysicsProcess(double delta)
     {
+        
+        UpdateHealth();
         base._PhysicsProcess(delta);
 
         Direction = Vector2.Zero;
@@ -72,7 +79,7 @@ public partial class Player : CharacterBody2D
         }
     }
 
-    
+
 
     private void UpdateAnimation(Vector2 direction)
     {
@@ -106,8 +113,8 @@ public partial class Player : CharacterBody2D
 
     public override void _Process(double delta)
     {
-        
-        
+
+
         if (Input.IsActionJustPressed("attack")) // Replace with your input action
         {
             slash();
@@ -119,7 +126,13 @@ public partial class Player : CharacterBody2D
         Vector2 mousePosition = GetGlobalMousePosition();
         Vector2 direction = mousePosition - GlobalPosition;
         float angle = direction.Angle();  // en radians
+
+        angle += Mathf.Pi / 4; //tourne de 45 degre a droite 
         slashAnim.Rotation = angle;
+
+        globalInstance.player_current_attack = true;//
+        GD.Print("attash slash");
+        attack_ip = true;//
 
         slashAnim.Visible = true;
         slashAnim.Play("slash");
@@ -128,6 +141,9 @@ public partial class Player : CharacterBody2D
     private void OnSlashAnimationFinished()
     {
         slashAnim.Visible = false;
+
+        globalInstance.player_current_attack = false;//
+        attack_ip = false;//
     }
 
     public void _on_player_hitbox_body_entered(Node2D body)
@@ -153,6 +169,8 @@ public partial class Player : CharacterBody2D
         enemy_attack_cooldown = true;
     }
 
+    
+
     public void ennemy_attack()
     {
         if (enemy_inattack_range && enemy_attack_cooldown)
@@ -166,7 +184,33 @@ public partial class Player : CharacterBody2D
 
     public void player()
     {
-        
+
     }
+
+    public void UpdateHealth()
+    {
+    var healthbar = GetNode<ProgressBar>("healthbar");
+    healthbar.Value = health;
+
+    if (health >= 100)
+        healthbar.Visible = false;
+    else
+        healthbar.Visible = true;
+    }
+
+    private void _on_regin_timer_timeout()
+    {
+        if (health < 100)
+        {
+            health += 20;
+            if (health > 100)
+                health = 100;
+        }
+
+        if (health <= 0)
+            health = 0;
+    }
+
 }
 
+ 

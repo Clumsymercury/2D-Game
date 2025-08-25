@@ -147,7 +147,19 @@ shape = SubResource("CircleShape2D_jgxjv")
 position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_4f6yq")
 
+[node name="take_damage_cooldown" type="Timer" parent="."]
+
+[node name="healthbar" type="ProgressBar" parent="."]
+modulate = Color(0, 0.365798, 0.128762, 1)
+offset_left = -5.0
+offset_top = -7.0
+offset_right = 95.0
+offset_bottom = 20.0
+scale = Vector2(0.1, 0.1)
+show_percentage = false
+
 [connection signal="body_entered" from="detection area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection area" to="." method="_on_detection_area_body_exited"]
 [connection signal="body_entered" from="ennemy_hitbox" to="." method="_on_ennemy_hitbox_body_entered"]
 [connection signal="body_exited" from="ennemy_hitbox" to="." method="_on_ennemy_hitbox_body_exited"]
+[connection signal="timeout" from="take_damage_cooldown" to="." method="_on_take_damage_cooldown_timeout"]
