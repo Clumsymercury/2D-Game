@@ -1,7 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://ddu6o8a58nhsh"]
+[gd_scene load_steps=22 format=3 uid="uid://ddu6o8a58nhsh"]
 
 [ext_resource type="Script" path="res://scripts/Ennemy.cs" id="1_djhcc"]
 [ext_resource type="Texture2D" uid="uid://bq77svxq6cjc" path="res://Assets/gfx/slime.png" id="2_u2473"]
+[ext_resource type="Texture2D" uid="uid://th2ycptl5vgt" path="res://Assets/gfx/slime_white.png" id="3_olgdd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w0ib6"]
 atlas = ExtResource("2_u2473")
@@ -38,6 +39,10 @@ region = Rect2(96, 384, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_xnsb1"]
 atlas = ExtResource("2_u2473")
 region = Rect2(128, 384, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73bh7"]
+atlas = ExtResource("3_olgdd")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ckryj"]
 atlas = ExtResource("2_u2473")
@@ -90,8 +95,16 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xnsb1")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73bh7")
+}],
+"loop": false,
+"name": &"take_damage",
 "speed": 5.0
 }, {
 "frames": [{
@@ -129,7 +142,9 @@ script = ExtResource("1_djhcc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qx6xg")
-animation = &"walk"
+animation = &"death"
+frame = 4
+frame_progress = 1.0
 
 [node name="detection area" type="Area2D" parent="."]
 collision_mask = 3

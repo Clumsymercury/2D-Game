@@ -115,7 +115,8 @@ script = ExtResource("1_nx02l")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_guk46")
-animation = &"walk"
+animation = &"death"
+frame_progress = 0.349454
 
 [node name="detection area" type="Area2D" parent="."]
 collision_mask = 3
@@ -128,10 +129,23 @@ shape = SubResource("CircleShape2D_gjdfe")
 position = Vector2(0, 5)
 shape = SubResource("CircleShape2D_kb641")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="ennemy_hitbox" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ennemy_hitbox"]
 shape = SubResource("CircleShape2D_gbrp0")
+
+[node name="take_damage_cooldown" type="Timer" parent="."]
+
+[node name="healthbar" type="ProgressBar" parent="."]
+offset_left = -5.0
+offset_top = -13.0
+offset_right = 95.0
+offset_bottom = 14.0
+scale = Vector2(0.1, 0.1)
+show_percentage = false
 
 [connection signal="body_entered" from="detection area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection area" to="." method="_on_detection_area_body_exited"]
+[connection signal="body_entered" from="ennemy_hitbox" to="." method="_on_ennemy_hitbox_body_entered"]
+[connection signal="body_exited" from="ennemy_hitbox" to="." method="_on_ennemy_hitbox_body_exited"]
+[connection signal="timeout" from="take_damage_cooldown" to="." method="_on_take_damage_cooldown_timeout"]

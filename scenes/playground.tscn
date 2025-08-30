@@ -4390,7 +4390,7 @@ text = "text
 script = ExtResource("3_6l8ic")
 
 [node name="tileLayers" type="Node2D" parent="."]
-position = Vector2(3, 99)
+position = Vector2(1, 101)
 
 [node name="GroundTileLayers" type="TileMapLayer" parent="tileLayers"]
 position = Vector2(27, -31)

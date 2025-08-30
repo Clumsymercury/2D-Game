@@ -7,7 +7,7 @@ public partial class Ennemy : CharacterBody2D
     [Export]
     public float Speed = 40f;
 
-    private bool playerChase = false;
+    private bool player_chase = false;
     private Node2D player;
 
     public float health = 100f;
@@ -17,17 +17,32 @@ public partial class Ennemy : CharacterBody2D
 
     private ProgressBar healthbar;
 
+    private bool is_dead = false;
+
+    private bool is_taking_damage = false;
+
     public override void _Ready()
     {
         GetNode<Timer>("take_damage_cooldown").Timeout += OnTakeDamageCooldownTimeout;
         healthbar = GetNode<ProgressBar>("healthbar");
+
+        var anim = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+        anim.AnimationFinished += OnAnimationFinished;
     }
     public override void _PhysicsProcess(double delta)
     {
+
+        
         UpdateHealth();
         deal_with_damage();
 
-        if (playerChase && player != null)
+        if (is_dead || is_taking_damage)
+        {
+            Velocity = Vector2.Zero;
+            return;
+        }
+
+        if (player_chase && player != null)
         {
             GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("walk");
             Vector2 direction = (player.GlobalPosition - GlobalPosition).Normalized();
@@ -56,7 +71,7 @@ public partial class Ennemy : CharacterBody2D
 
         GD.Print("Player detected!");
         player = body;
-        playerChase = true;
+        player_chase = true;
 
     }
 
@@ -66,7 +81,7 @@ public partial class Ennemy : CharacterBody2D
 
         GD.Print("Player left detection!");
         player = null;
-        playerChase = false;
+        player_chase = false;
 
     }
     public void ennemy()
@@ -103,14 +118,47 @@ public partial class Ennemy : CharacterBody2D
             if (can_take_damage == true)
             {
                 health = health - 20;
+                var anim_take_damage = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+                anim_take_damage.Play("take_damage");
+
+                is_taking_damage = true; // bloque les  autre animations
+                
+                
                 GetNode<Timer>("take_damage_cooldown").Start();
                 can_take_damage = false;
+
                 GD.Print("slime health = ", health);
-                if (health <= 0)
+                if (health <= 0 && !is_dead)
                 {
-                    QueueFree();
+                    is_dead = true;
+                    var anim_death = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+                    anim_death.Play("death");                  
+                    
                 }
             }
+        }
+    }
+    
+    private void OnAnimationFinished()
+    {
+        var anim = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+
+        if (anim.Animation == "take_damage")
+        {
+            is_taking_damage = false;
+
+            // remrt animation walk
+            if (!is_dead)
+            {
+                if (player_chase && player != null)
+                    anim.Play("walk");
+                else
+                    anim.Play("IDLE");
+            }
+        }
+        else if (anim.Animation == "death")
+        {
+            QueueFree();
         }
     }
     private void UpdateHealth()
