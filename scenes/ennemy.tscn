@@ -97,7 +97,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"death",
-"speed": 10.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -142,9 +142,7 @@ script = ExtResource("1_djhcc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qx6xg")
-animation = &"death"
-frame = 4
-frame_progress = 1.0
+animation = &"take_damage"
 
 [node name="detection area" type="Area2D" parent="."]
 collision_mask = 3

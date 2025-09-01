@@ -15,7 +15,8 @@ public partial class Player : CharacterBody2D
 
     private bool enemy_inattack_range = false;
     private bool enemy_attack_cooldown = false;
-    public float health = 100f;
+    public int health = 6;
+    private int max_health = 6;
     private bool player_alive = true;
 
     private bool attack_ip = false; //ip = in progress (pour alex :) )
@@ -24,6 +25,8 @@ public partial class Player : CharacterBody2D
     private AnimatedSprite2D slashAnim;//
 
     private globall globalInstance;//
+
+    private HUD _hud;
     public override void _Ready()
     {
 
@@ -38,6 +41,8 @@ public partial class Player : CharacterBody2D
         slashAnim.AnimationFinished += OnSlashAnimationFinished;
 
         globalInstance = GetNode<globall>("/root/Globall");//
+        UpdateHealth();
+        _hud = GetTree().Root.GetNode<HUD>("Playground/HUD");
     }
 
     public override void _Input(InputEvent @event)
@@ -48,7 +53,7 @@ public partial class Player : CharacterBody2D
 
     public override void _PhysicsProcess(double delta)
     {
-        
+
         UpdateHealth();
         base._PhysicsProcess(delta);
 
@@ -169,16 +174,18 @@ public partial class Player : CharacterBody2D
         enemy_attack_cooldown = true;
     }
 
-    
+
 
     public void ennemy_attack()
     {
         if (enemy_inattack_range && enemy_attack_cooldown)
         {
-            health = health - 20;
+            health = health - 1;
             enemy_attack_cooldown = false;
             GetNode<Timer>("attack_cooldown").Start();
             GD.Print(health);
+
+            UpdateHealth();
         }
     }
 
@@ -189,28 +196,23 @@ public partial class Player : CharacterBody2D
 
     public void UpdateHealth()
     {
-    var healthbar = GetNode<ProgressBar>("healthbar");
-    healthbar.Value = health;
-
-    if (health >= 100)
-        healthbar.Visible = false;
-    else
-        healthbar.Visible = true;
+        if (_hud == null) return;
+        _hud.UpdateHearts(health);
     }
 
     private void _on_regin_timer_timeout()
     {
-        if (health < 100)
+        if (health < 6)
         {
-            health += 20;
-            if (health > 100)
-                health = 100;
+            health += 1;
+            if (health > 6)
+                health = 6;
         }
 
         if (health <= 0)
             health = 0;
     }
-
+    
 }
 
  

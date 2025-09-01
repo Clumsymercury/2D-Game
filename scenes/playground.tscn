@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://fwi0t51rej8v"]
+[gd_scene load_steps=18 format=4 uid="uid://fwi0t51rej8v"]
 
 [ext_resource type="Texture2D" uid="uid://c6j47wlj6a6wa" path="res://Assets/gfx/icon.svg" id="1_x201o"]
 [ext_resource type="Script" path="res://scripts/Sprite2d.cs" id="2_vii57"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ddu6o8a58nhsh" path="res://scenes/ennemy.tscn" id="5_5j6jt"]
 [ext_resource type="PackedScene" uid="uid://ca1tmo0gwa3hu" path="res://scenes/player.tscn" id="6_q8qpp"]
 [ext_resource type="PackedScene" uid="uid://b3s1iyv52boew" path="res://scenes/ennemy_2.tscn" id="7_gthob"]
+[ext_resource type="PackedScene" uid="uid://d1shxcspl81x0" path="res://scenes/hud.tscn" id="8_bqhve"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0vfo1"]
 
@@ -4420,3 +4421,5 @@ tile_set = SubResource("TileSet_st2n4")
 
 [node name="CharacterBody2D2" parent="." instance=ExtResource("7_gthob")]
 position = Vector2(548, 532)
+
+[node name="HUD" parent="." instance=ExtResource("8_bqhve")]

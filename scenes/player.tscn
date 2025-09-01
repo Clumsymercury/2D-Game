@@ -289,15 +289,6 @@ shape = SubResource("CircleShape2D_arhxb")
 
 [node name="attack_cooldown" type="Timer" parent="."]
 
-[node name="healthbar" type="ProgressBar" parent="."]
-modulate = Color(0.711889, 0.177375, 0.0430119, 1)
-offset_left = -6.0
-offset_top = -13.0
-offset_right = 114.0
-offset_bottom = 14.0
-scale = Vector2(0.1, 0.1)
-show_percentage = false
-
 [node name="regin_timer" type="Timer" parent="."]
 wait_time = 7.0
 autostart = true
