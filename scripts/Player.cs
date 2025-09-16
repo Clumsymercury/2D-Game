@@ -9,7 +9,7 @@ public partial class Player : CharacterBody2D
     private AnimatedSprite2D anim;
 
     private Vector2 Direction;
-    private float Speed = 100;
+    private float Speed = 60;
 
     private AnimationPlayer animationPlayer;
 
@@ -120,7 +120,7 @@ public partial class Player : CharacterBody2D
     {
 
 
-        if (Input.IsActionJustPressed("attack")) // Replace with your input action
+        if (Input.IsActionJustPressed("attack")) 
         {
             slash();
         }
@@ -134,6 +134,7 @@ public partial class Player : CharacterBody2D
 
         angle += Mathf.Pi / 4; //tourne de 45 degre a droite 
         slashAnim.Rotation = angle;
+        GD.Print(angle);
 
         globalInstance.player_current_attack = true;//
         GD.Print("attash slash");
@@ -141,6 +142,18 @@ public partial class Player : CharacterBody2D
 
         slashAnim.Visible = true;
         slashAnim.Play("slash");
+
+        if (angle >= -2.0f && angle <= 0.4f)
+        {
+            // Derrière le joueur
+            slashAnim.ZIndex = ZIndex - 0;
+        }
+        else
+        {
+            // Devant le joueur
+            slashAnim.ZIndex = ZIndex + 2;
+        }
+        Speed = 10;
     }
 
     private void OnSlashAnimationFinished()
@@ -149,6 +162,7 @@ public partial class Player : CharacterBody2D
 
         globalInstance.player_current_attack = false;//
         attack_ip = false;//
+        Speed = 60;
     }
 
     public void _on_player_hitbox_body_entered(Node2D body)

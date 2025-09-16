@@ -117,7 +117,9 @@ public partial class Ennemy : CharacterBody2D
         {
             if (can_take_damage == true)
             {
-                health = health - 20;
+                //prendre des degats pa apport au niveau                 
+                health -= globalInstance.player_damage;
+
                 var anim_take_damage = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
                 anim_take_damage.Play("take_damage");
 
@@ -132,8 +134,9 @@ public partial class Ennemy : CharacterBody2D
                 {
                     is_dead = true;
                     var anim_death = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
-                    anim_death.Play("death");                  
-                    
+                    anim_death.Play("death");  
+
+                    globalInstance.AddXP(25);                                    
                 }
             }
         }
@@ -172,8 +175,7 @@ public partial class Ennemy : CharacterBody2D
         {
             healthbar.Visible = true;
         }
-    }
-    
+    }  
 }
 
 

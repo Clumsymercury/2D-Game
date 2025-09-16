@@ -25,8 +25,8 @@ offset_bottom = 40.0
 
 [node name="Hearts" type="HBoxContainer" parent="Control"]
 layout_mode = 0
-offset_right = 56.0
-offset_bottom = 16.0
+offset_right = 104.0
+offset_bottom = 32.0
 
 [node name="heart1" type="TextureRect" parent="Control/Hearts"]
 layout_mode = 2
@@ -39,3 +39,18 @@ texture = SubResource("AtlasTexture_nxonp")
 [node name="heart3" type="TextureRect" parent="Control/Hearts"]
 layout_mode = 2
 texture = SubResource("AtlasTexture_x5pip")
+
+[node name="XPBar" type="ProgressBar" parent="Control"]
+layout_mode = 0
+offset_left = 362.0
+offset_top = 613.0
+offset_right = 741.0
+offset_bottom = 640.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="Control/XPBar"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 2.0
+offset_right = 207.0
+offset_bottom = 25.0
