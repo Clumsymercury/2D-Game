@@ -5,17 +5,18 @@ using System.Runtime.CompilerServices;
 
 public partial class Player : CharacterBody2D
 {
-    [Export] 
+    [Export]
     private AnimatedSprite2D anim;
 
     private Vector2 Direction;
-    private float Speed = 100;
+    private float Speed = 60;
 
     private AnimationPlayer animationPlayer;
 
     private bool enemy_inattack_range = false;
     private bool enemy_attack_cooldown = false;
-    public float health = 100f;
+    public int health = 6;
+    private int max_health = 6;
     private bool player_alive = true;
 
     private bool attack_ip = false; //ip = in progress (pour alex :) )
@@ -23,8 +24,13 @@ public partial class Player : CharacterBody2D
     private string lastAnimation = "walk_down_right";
     private AnimatedSprite2D slashAnim;//
 
+    private globall globalInstance;//
+
+    private HUD _hud;
     public override void _Ready()
     {
+
+
         anim = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
         GetNode<Timer>("attack_cooldown").Start();
 
@@ -33,6 +39,10 @@ public partial class Player : CharacterBody2D
 
         // Connect the signal
         slashAnim.AnimationFinished += OnSlashAnimationFinished;
+
+        globalInstance = GetNode<globall>("/root/Globall");//
+        UpdateHealth();
+        _hud = GetTree().Root.GetNode<HUD>("Playground/HUD");
     }
 
     public override void _Input(InputEvent @event)
@@ -43,6 +53,8 @@ public partial class Player : CharacterBody2D
 
     public override void _PhysicsProcess(double delta)
     {
+
+        UpdateHealth();
         base._PhysicsProcess(delta);
 
         Direction = Vector2.Zero;
@@ -72,7 +84,7 @@ public partial class Player : CharacterBody2D
         }
     }
 
-    
+
 
     private void UpdateAnimation(Vector2 direction)
     {
@@ -106,9 +118,9 @@ public partial class Player : CharacterBody2D
 
     public override void _Process(double delta)
     {
-        
-        
-        if (Input.IsActionJustPressed("attack")) // Replace with your input action
+
+
+        if (Input.IsActionJustPressed("attack")) 
         {
             slash();
         }
@@ -119,15 +131,38 @@ public partial class Player : CharacterBody2D
         Vector2 mousePosition = GetGlobalMousePosition();
         Vector2 direction = mousePosition - GlobalPosition;
         float angle = direction.Angle();  // en radians
+
+        angle += Mathf.Pi / 4; //tourne de 45 degre a droite 
         slashAnim.Rotation = angle;
+        GD.Print(angle);
+
+        globalInstance.player_current_attack = true;//
+        GD.Print("attash slash");
+        attack_ip = true;//
 
         slashAnim.Visible = true;
         slashAnim.Play("slash");
+
+        if (angle >= -2.0f && angle <= 0.4f)
+        {
+            // Derrière le joueur
+            slashAnim.ZIndex = ZIndex - 0;
+        }
+        else
+        {
+            // Devant le joueur
+            slashAnim.ZIndex = ZIndex + 2;
+        }
+        Speed = 10;
     }
 
     private void OnSlashAnimationFinished()
     {
         slashAnim.Visible = false;
+
+        globalInstance.player_current_attack = false;//
+        attack_ip = false;//
+        Speed = 60;
     }
 
     public void _on_player_hitbox_body_entered(Node2D body)
@@ -153,20 +188,45 @@ public partial class Player : CharacterBody2D
         enemy_attack_cooldown = true;
     }
 
+
+
     public void ennemy_attack()
     {
         if (enemy_inattack_range && enemy_attack_cooldown)
         {
-            health = health - 20;
+            health = health - 1;
             enemy_attack_cooldown = false;
             GetNode<Timer>("attack_cooldown").Start();
             GD.Print(health);
+
+            UpdateHealth();
         }
     }
 
     public void player()
     {
-        
+
     }
+
+    public void UpdateHealth()
+    {
+        if (_hud == null) return;
+        _hud.UpdateHearts(health);
+    }
+
+    private void _on_regin_timer_timeout()
+    {
+        if (health < 6)
+        {
+            health += 1;
+            if (health > 6)
+                health = 6;
+        }
+
+        if (health <= 0)
+            health = 0;
+    }
+    
 }
 
+ 

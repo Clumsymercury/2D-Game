@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://b3s1iyv52boew"]
+[gd_scene load_steps=20 format=3 uid="uid://b3s1iyv52boew"]
 
 [ext_resource type="Script" path="res://scripts/Ennemy2.cs" id="1_nx02l"]
 [ext_resource type="Texture2D" uid="uid://bchskf8cga1fo" path="res://Assets/gfx/log.png" id="2_3qdje"]
+[ext_resource type="Texture2D" uid="uid://dvuocv6ysh67p" path="res://Assets/gfx/log_white_2.png" id="3_2hqng"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nr4pu"]
 atlas = ExtResource("2_3qdje")
@@ -19,17 +20,21 @@ region = Rect2(128, 64, 32, 32)
 atlas = ExtResource("2_3qdje")
 region = Rect2(128, 96, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ub1j6"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_yw7lt"]
 atlas = ExtResource("2_3qdje")
-region = Rect2(160, 0, 32, 32)
+region = Rect2(160, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_puon8"]
 atlas = ExtResource("2_3qdje")
 region = Rect2(160, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yw7lt"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ub1j6"]
 atlas = ExtResource("2_3qdje")
-region = Rect2(160, 64, 32, 32)
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mj7sl"]
+atlas = ExtResource("3_2hqng")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ch0iy"]
 atlas = ExtResource("2_3qdje")
@@ -68,16 +73,24 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ub1j6")
+"texture": SubResource("AtlasTexture_yw7lt")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_puon8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yw7lt")
+"texture": SubResource("AtlasTexture_ub1j6")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mj7sl")
+}],
+"loop": false,
+"name": &"take_damage",
 "speed": 5.0
 }, {
 "frames": [{
@@ -115,7 +128,7 @@ script = ExtResource("1_nx02l")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_guk46")
-animation = &"walk"
+animation = &"take_damage"
 
 [node name="detection area" type="Area2D" parent="."]
 collision_mask = 3
@@ -128,10 +141,23 @@ shape = SubResource("CircleShape2D_gjdfe")
 position = Vector2(0, 5)
 shape = SubResource("CircleShape2D_kb641")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="ennemy_hitbox" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ennemy_hitbox"]
 shape = SubResource("CircleShape2D_gbrp0")
+
+[node name="take_damage_cooldown" type="Timer" parent="."]
+
+[node name="healthbar" type="ProgressBar" parent="."]
+offset_left = -5.0
+offset_top = -13.0
+offset_right = 95.0
+offset_bottom = 14.0
+scale = Vector2(0.1, 0.1)
+show_percentage = false
 
 [connection signal="body_entered" from="detection area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection area" to="." method="_on_detection_area_body_exited"]
+[connection signal="body_entered" from="ennemy_hitbox" to="." method="_on_ennemy_hitbox_body_entered"]
+[connection signal="body_exited" from="ennemy_hitbox" to="." method="_on_ennemy_hitbox_body_exited"]
+[connection signal="timeout" from="take_damage_cooldown" to="." method="_on_take_damage_cooldown_timeout"]

@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://d1shxcspl81x0"]
+
+[ext_resource type="Texture2D" uid="uid://koxd0uo0pvhy" path="res://Assets/gfx/Pixel Heart Sprite full.png" id="1_3lany"]
+[ext_resource type="Script" path="res://scenes/HUD.cs" id="1_6pqqf"]
+[ext_resource type="Texture2D" uid="uid://dotqajk1hg3x8" path="res://Assets/gfx/Pixel Heart Sprite half.png" id="2_q66e2"]
+[ext_resource type="Texture2D" uid="uid://c65q4v1efghme" path="res://Assets/gfx/Pixel Heart Sprite empty.png" id="3_d1sgk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uguss"]
+atlas = ExtResource("1_3lany")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nxonp"]
+atlas = ExtResource("2_q66e2")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5pip"]
+atlas = ExtResource("3_d1sgk")
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_6pqqf")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Hearts" type="HBoxContainer" parent="Control"]
+layout_mode = 0
+offset_right = 104.0
+offset_bottom = 32.0
+
+[node name="heart1" type="TextureRect" parent="Control/Hearts"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_uguss")
+
+[node name="heart2" type="TextureRect" parent="Control/Hearts"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_nxonp")
+
+[node name="heart3" type="TextureRect" parent="Control/Hearts"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_x5pip")
+
+[node name="XPBar" type="ProgressBar" parent="Control"]
+layout_mode = 0
+offset_left = 362.0
+offset_top = 613.0
+offset_right = 741.0
+offset_bottom = 640.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="Control/XPBar"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 2.0
+offset_right = 207.0
+offset_bottom = 25.0
