@@ -4,6 +4,9 @@ using System;
 public partial class Ennemy : CharacterBody2D
 {
 
+    [Signal]
+    public delegate void Enemy_diedEventHandler();
+
     [Export]
     public float Speed = 40f;
 
@@ -134,8 +137,8 @@ public partial class Ennemy : CharacterBody2D
                 {
                     is_dead = true;
                     var anim_death = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
-                    anim_death.Play("death");  
-
+                    anim_death.Play("death");
+                    EmitSignal("Enemy_died");//pour la mission
                     globalInstance.AddXP(25);                                    
                 }
             }

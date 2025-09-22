@@ -20,6 +20,9 @@ public partial class globall : Node
         {
             player_xp -= player_xp_max; // on garde le reste pouir apres
             LevelUp();
+
+            player_xp_max = (int)(player_xp_max * 1.1 + 10);
+            GD.Print(player_xp_max);
         }
     }
 

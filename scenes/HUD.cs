@@ -39,7 +39,7 @@ public partial class HUD : CanvasLayer
         xp_bar.MaxValue = globalInstance.player_xp_max;
         xp_bar.Value = globalInstance.player_xp;
 
-        xp_label.Text = $"Niveau {globalInstance.player_level}";
+        xp_label.Text = $"XP: {globalInstance.player_level}";
 	}
 	public void UpdateHearts(int currentHealth)
 	{

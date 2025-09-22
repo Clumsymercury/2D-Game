@@ -1,7 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://ddr0l1q7qx2ob"]
+[gd_scene load_steps=25 format=3 uid="uid://ddr0l1q7qx2ob"]
 
 [ext_resource type="Texture2D" uid="uid://c3jhi1cfk7qlm" path="res://Assets/gfx/Human-Worker-Red.png" id="1_x8o5w"]
 [ext_resource type="Script" path="res://scenes/Npc.cs" id="1_xrkch"]
+[ext_resource type="PackedScene" uid="uid://h2wgcodsywku" path="res://scenes/dialogue.tscn" id="3_serjj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5n13t"]
 atlas = ExtResource("1_x8o5w")
@@ -101,7 +102,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_j4vqw")
 }],
-"loop": false,
+"loop": true,
 "name": &"walk_e",
 "speed": 5.0
 }, {
@@ -118,7 +119,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_cm6jv")
 }],
-"loop": false,
+"loop": true,
 "name": &"walk_n",
 "speed": 5.0
 }, {
@@ -135,7 +136,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_s6je2")
 }],
-"loop": false,
+"loop": true,
 "name": &"walk_s",
 "speed": 5.0
 }, {
@@ -152,7 +153,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_b7b3c")
 }],
-"loop": false,
+"loop": true,
 "name": &"walk_w",
 "speed": 5.0
 }]
@@ -186,6 +187,12 @@ shape = SubResource("CircleShape2D_ubakr")
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
+[node name="Dialogue" parent="." instance=ExtResource("3_serjj")]
+offset_right = 0.0
+offset_bottom = 1.0
+scale = Vector2(0.5, 0.5)
+
 [connection signal="body_entered" from="chat_detection_area" to="." method="_on_chat_detection_area_body_entered"]
 [connection signal="body_exited" from="chat_detection_area" to="." method="_on_chat_detection_area_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="dialogue_finished" from="Dialogue" to="." method="_on_dialogue_dialogue_finished"]

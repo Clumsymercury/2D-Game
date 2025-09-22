@@ -1,0 +1,10 @@
+[
+  {"name": "NPC", "text": "Salut voyageur... tu as une minute ?"},
+  {"name": "Player", "text": "Oui, qu'est-ce qu'il y a ?"},
+  {"name": "NPC", "text": "J'ai été attaqué par un groupe de monstres en revenant ici."},
+  {"name": "NPC", "text": "Ils m'ont presque eu... je n'ai eu la vie sauve qu'en fuyant."},
+  {"name": "NPC", "text": "Mais ils rôdent toujours dans les environs."},
+  {"name": "NPC", "text": "Peux-tu m'aider à les chasser ? Il faut en éliminer au moins 5."},
+  {"name": "Player", "text": "Bien sûr, je m'en occupe."},
+  {"name": "NPC", "text": "Merci... tu me rends un grand service."}
+]
