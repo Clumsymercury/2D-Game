@@ -17,7 +17,7 @@ config/icon="res://Assets/gfx/icon.svg"
 
 [aseprite_importers]
 
-aseprite_executable_path="D:/SteamLibrary/steamapps/common/Aseprite/Aseprite.exe"
+aseprite_executable_path="res://Assets/gfx/fountain/addons/nklbdev.aseprite_importers/aseprite_image_format_loader_extension.gd/"
 
 [autoload]
 

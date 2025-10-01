@@ -8,9 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://dmhx3d6cixhic" path="res://Assets/gfx/cave.png" id="5_scu17"]
 [ext_resource type="PackedScene" uid="uid://ca1tmo0gwa3hu" path="res://scenes/player.tscn" id="6_q8qpp"]
 [ext_resource type="PackedScene" uid="uid://b3s1iyv52boew" path="res://scenes/ennemy_2.tscn" id="7_gthob"]
-[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="8_bqhve"]
+[ext_resource type="PackedScene" uid="uid://d1shxcspl81x0" path="res://scenes/hud.tscn" id="8_bqhve"]
 [ext_resource type="Texture2D" uid="uid://df8qw4e2v5ori" path="res://Assets/gfx/wholebushleaves.aseprite" id="8_nxt5f"]
-[ext_resource type="PackedScene" path="res://scenes/npc.tscn" id="9_qfevp"]
+[ext_resource type="PackedScene" uid="uid://ddr0l1q7qx2ob" path="res://scenes/npc.tscn" id="9_qfevp"]
+
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0vfo1"]
 

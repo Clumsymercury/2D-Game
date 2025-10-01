@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://df8qw4e2v5ori"
-valid=false
+uid="uid://bbww6j66bavar"
+path="res://.godot/imported/icon.png-04ac1dbd04770691d2ebe62781912fa4.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://Assets/gfx/wholebushleaves.aseprite"
+source_file="res://Assets/gfx/fountain/addons/nklbdev.aseprite_importers/icon.png"
+dest_files=["res://.godot/imported/icon.png-04ac1dbd04770691d2ebe62781912fa4.ctex"]
 
 [params]
 
