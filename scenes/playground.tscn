@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://ca1tmo0gwa3hu" path="res://scenes/player.tscn" id="6_q8qpp"]
 [ext_resource type="PackedScene" uid="uid://b3s1iyv52boew" path="res://scenes/ennemy_2.tscn" id="7_gthob"]
 [ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="8_bqhve"]
-[ext_resource type="Texture2D" uid="uid://df8qw4e2v5ori" path="res://Assets/gfx/wholebushleaves.aseprite" id="8_nxt5f"]
 [ext_resource type="PackedScene" path="res://scenes/npc.tscn" id="9_qfevp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0vfo1"]
@@ -4768,8 +4767,11 @@ texture = ExtResource("4_egy67")
 physics_layer_0/collision_layer = 24
 sources/0 = SubResource("TileSetAtlasSource_44g0p")
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xwh7p"]
+load_path = "res://.godot/imported/wholebushleaves.aseprite-cc8b6e9d783cce80c6f43a7ebc9b3ea4.ctex"
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8y8jp"]
-texture = ExtResource("8_nxt5f")
+texture = SubResource("CompressedTexture2D_xwh7p")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
