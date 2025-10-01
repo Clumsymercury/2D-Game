@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://scripts/Player.cs" id="1_8jyfh"]
 [ext_resource type="Texture2D" uid="uid://bdubbdtbrruop" path="res://Assets/gfx/character.png" id="2_gkoc2"]
 
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_nx5u4"]
 atlas = ExtResource("2_gkoc2")
 region = Rect2(0, 0, 16, 32)
