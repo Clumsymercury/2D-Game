@@ -1,15 +1,15 @@
 cffcf7cc5eb03ca20a5c49cce30ef619
-::res://::1759359744
+::res://::1759360665
 ennemy.tscn::PackedScene::7808010157384716029::1752774040::0::1::::<><>::res://scripts/Ennemy.cs<>uid://bq77svxq6cjc::::res://Assets/gfx/slime.png
 node_2d.tscn::PackedScene::-1::1759356427::0::1::::<><>::
 README.md::TextFile::-1::1759356427::0::1::::<><>::
 README.ru.md::TextFile::-1::1759356427::0::1::::<><>::
 ::res://addons/::1759356427
-::res://addons/nklbdev.aseprite_importers/::1759359061
+::res://addons/nklbdev.aseprite_importers/::1759360664
 aseprite_image_format_loader_extension.gd::GDScript::-1::1759356427::0::1::::<>ImageFormatLoaderExtension<>::
 common.gd::GDScript::-1::1759356427::0::1::::<>Object<>::
 editor_plugin.gd::GDScript::-1::1759356427::0::1::::<>EditorPlugin<>::
-icon.png::CompressedTexture2D::2503417493381309461::1759356427::1759357157::1::::<><>::
+icon.png::CompressedTexture2D::2503417493381309461::1759356427::1759360892::1::::<><>::
 plugin.cfg::TextFile::-1::1759359061::0::1::::<><>::
 ::res://addons/nklbdev.aseprite_importers/editor_import_plugins/::1759356427
 _animation_importer_base.gd::GDScript::-1::1759356427::0::1::::<><>::
@@ -21,7 +21,7 @@ sprite_3d.gd::GDScript::-1::1759356427::0::1::::<><>::
 sprite_frames.gd::GDScript::-1::1759356427::0::1::::<><>::
 texture_rect.gd::GDScript::-1::1759356427::0::1::::<><>::
 ::res://Assets/::1756672843
-::res://Assets/gfx/::1759359844
+::res://Assets/gfx/::1759360748
 all_swords.png::CompressedTexture2D::4361893792811295326::1752065012::1752065062::1::::<><>::
 cave.png::CompressedTexture2D::8017425517638537190::1750163626::1751234165::1::::<><>::
 character.png::CompressedTexture2D::2638337459465244339::1750163626::1751234165::1::::<><>::
@@ -49,7 +49,6 @@ Pixel Heart Sprite Sheet 32x32.png::CompressedTexture2D::301426489276915501::175
 slash_sword.png::CompressedTexture2D::6251552651646545786::1752777159::1752777159::1::::<><>::
 slime.png::CompressedTexture2D::105219955805284820::1751895634::1752774040::1::::<><>::
 slime_white.png::CompressedTexture2D::1349721020357388659::1756587796::1756587807::1::::<><>::
-wholebushleaves.aseprite::CompressedTexture2D::7579343025115996066::1759359838::1759359846::0::::<><>::
 ::res://Assets/gfx/fountain/::1759358365
 fountain.tres::AnimatedTexture::2777148612709299736::1759356427::0::1::::<><>::
 README.md::TextFile::-1::1759358365::0::1::::<><>::
@@ -72,24 +71,24 @@ sprite_frames.gd::GDScript::-1::1759358365::0::1::::<><>::
 texture_rect.gd::GDScript::-1::1759358365::0::1::::<><>::
 ::res://dialogue/::1758060434
 NPC_dialogue1.json::JSON::-1::1758060434::0::1::::<><>::
-::res://Levels/::1759356427
+::res://Levels/::1759360748
 01.tscn::PackedScene::4074238307467133382::1759356427::0::1::::<><>::uid://dlskumwbj6s7i::::res://Assets/gfx/Overworld.png<>uid://dmhx3d6cixhic::::res://Assets/gfx/cave.png<>uid://df8qw4e2v5ori::::res://Assets/gfx/wholebushleaves.aseprite<>uid://bwplrc7gvn6u8::::res://Levels/LevelTransition.tscn
 02.tscn::PackedScene::778193809232327890::1759356427::0::1::::<><>::uid://dlskumwbj6s7i::::res://Assets/gfx/Overworld.png<>uid://dmhx3d6cixhic::::res://Assets/gfx/cave.png<>uid://df8qw4e2v5ori::::res://Assets/gfx/wholebushleaves.aseprite<>uid://bwplrc7gvn6u8::::res://Levels/LevelTransition.tscn
 LevelTransition.tscn::PackedScene::3962239310239189181::1759356427::0::1::::<><>::res://scripts/LevelTransition.cs
 Tutorial.tscn::PackedScene::4877410864886172791::1759356427::0::1::::<><>::uid://bwplrc7gvn6u8::::res://Levels/LevelTransition.tscn
-::res://Resources/::1759358765
+::res://Resources/::1759360332
 Apple.tres::Resource::917887588814955177::1751234124::0::1::::<><>::res://scripts/inventory_item.cs
-pickup_item.tscn::PackedScene::414893572306601392::1759358765::0::1::::<><>::
-::res://scenes/::1759358765
+pickup_item.tscn::PackedScene::414893572306601392::1759360332::0::1::::<><>::
+::res://scenes/::1759360665
 character_body_2d.tscn::PackedScene::1529390050618641905::1759356427::0::1::::<><>::res://scripts/Player.cs<>uid://bdubbdtbrruop::::res://Assets/gfx/character.png
-dialogue.tscn::PackedScene::548406720265423744::1759358765::0::1::::<><>::uid://cqg6udh30t7ah::::res://Assets/gfx/inventory-slot.png<>res://scripts/Dialogue.cs
-ennemy.tscn::PackedScene::7413025099643260991::1759358765::0::1::::<><>::res://scripts/Ennemy.cs<>uid://djii10hxdowg0::::res://ennemy.tscn<>uid://bq77svxq6cjc::::res://Assets/gfx/slime.png<>uid://th2ycptl5vgt::::res://Assets/gfx/slime_white.png
-ennemy_2.tscn::PackedScene::4390461327694746638::1759358765::0::1::::<><>::res://scripts/Ennemy2.cs<>uid://bchskf8cga1fo::::res://Assets/gfx/log.png<>uid://dvuocv6ysh67p::::res://Assets/gfx/log_white_2.png
+dialogue.tscn::PackedScene::548406720265423744::1759360332::0::1::::<><>::uid://cqg6udh30t7ah::::res://Assets/gfx/inventory-slot.png<>res://scripts/Dialogue.cs
+ennemy.tscn::PackedScene::7413025099643260991::1759360332::0::1::::<><>::res://scripts/Ennemy.cs<>uid://djii10hxdowg0::::res://ennemy.tscn<>uid://bq77svxq6cjc::::res://Assets/gfx/slime.png<>uid://th2ycptl5vgt::::res://Assets/gfx/slime_white.png
+ennemy_2.tscn::PackedScene::4390461327694746638::1759360332::0::1::::<><>::res://scripts/Ennemy2.cs<>uid://bchskf8cga1fo::::res://Assets/gfx/log.png<>uid://dvuocv6ysh67p::::res://Assets/gfx/log_white_2.png
 HUD.cs::CSharpScript::-1::1758315464::0::1::::<>CanvasLayer<>::
-hud.tscn::PackedScene::9021797011001137703::1759358765::0::1::::<><>::uid://koxd0uo0pvhy::::res://Assets/gfx/Pixel Heart Sprite full.png<>res://scenes/HUD.cs<>uid://dotqajk1hg3x8::::res://Assets/gfx/Pixel Heart Sprite half.png<>uid://c65q4v1efghme::::res://Assets/gfx/Pixel Heart Sprite empty.png
+hud.tscn::PackedScene::9021797011001137703::1759360332::0::1::::<><>::uid://koxd0uo0pvhy::::res://Assets/gfx/Pixel Heart Sprite full.png<>res://scenes/HUD.cs<>uid://dotqajk1hg3x8::::res://Assets/gfx/Pixel Heart Sprite half.png<>uid://c65q4v1efghme::::res://Assets/gfx/Pixel Heart Sprite empty.png
 Npc.cs::CSharpScript::-1::1759310691::0::1::::<>CharacterBody2D<>::
-npc.tscn::PackedScene::7406461964164756993::1759358765::0::1::::<><>::uid://c3jhi1cfk7qlm::::res://Assets/gfx/Human-Worker-Red.png<>res://scenes/Npc.cs<>uid://h2wgcodsywku::::res://scenes/dialogue.tscn
-player.tscn::PackedScene::4827691015630234834::1759358765::0::1::::<><>::res://scripts/Player.cs<>uid://blcqd7alqkofl::::res://Assets/gfx/NewPlayer.png<>uid://bqqdwpag6sa0l::::res://Assets/gfx/New Piskel.png<>uid://cbocmc7cn0b3t::::res://Assets/gfx/New Piskel2.png
+npc.tscn::PackedScene::7406461964164756993::1759360332::0::1::::<><>::uid://c3jhi1cfk7qlm::::res://Assets/gfx/Human-Worker-Red.png<>res://scenes/Npc.cs<>uid://h2wgcodsywku::::res://scenes/dialogue.tscn
+player.tscn::PackedScene::4827691015630234834::1759360332::0::1::::<><>::res://scripts/Player.cs<>uid://blcqd7alqkofl::::res://Assets/gfx/NewPlayer.png<>uid://bqqdwpag6sa0l::::res://Assets/gfx/New Piskel.png<>uid://cbocmc7cn0b3t::::res://Assets/gfx/New Piskel2.png
 playground.tscn::PackedScene::396891955061223819::1759358075::0::1::::<><>::uid://c6j47wlj6a6wa::::res://Assets/gfx/icon.svg<>res://scripts/Sprite2d.cs<>res://scripts/Label.cs<>uid://dlskumwbj6s7i::::res://Assets/gfx/Overworld.png<>uid://ddu6o8a58nhsh::::res://scenes/ennemy.tscn<>uid://dmhx3d6cixhic::::res://Assets/gfx/cave.png<>uid://ca1tmo0gwa3hu::::res://scenes/player.tscn<>uid://b3s1iyv52boew::::res://scenes/ennemy_2.tscn<>uid://d1shxcspl81x0::::res://scenes/hud.tscn<>uid://df8qw4e2v5ori::::res://Assets/gfx/wholebushleaves.aseprite<>uid://ddr0l1q7qx2ob::::res://scenes/npc.tscn
 ::res://scripts/::1759356427
 CollisionShape2d.cs::CSharpScript::-1::1751922678::0::1::::<>CollisionShape2D<>::

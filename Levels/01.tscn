@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://dlskumwbj6s7i" path="res://Assets/gfx/Overworld.png" id="1_hkqlg"]
 [ext_resource type="Texture2D" uid="uid://dmhx3d6cixhic" path="res://Assets/gfx/cave.png" id="2_2jac1"]
-[ext_resource type="Texture2D" uid="uid://df8qw4e2v5ori" path="res://Assets/gfx/wholebushleaves.aseprite" id="3_fjkiq"]
 [ext_resource type="PackedScene" uid="uid://bwplrc7gvn6u8" path="res://Levels/LevelTransition.tscn" id="4_76wff"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0xuhu"]
@@ -4759,8 +4758,11 @@ texture = ExtResource("1_hkqlg")
 physics_layer_0/collision_layer = 24
 sources/0 = SubResource("TileSetAtlasSource_44g0p")
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xwh7p"]
+load_path = "res://.godot/imported/wholebushleaves.aseprite-cc8b6e9d783cce80c6f43a7ebc9b3ea4.ctex"
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8y8jp"]
-texture = ExtResource("3_fjkiq")
+texture = SubResource("CompressedTexture2D_xwh7p")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
