@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbqwikp1np03t"]
+
+[ext_resource type="PackedScene" uid="uid://bwplrc7gvn6u8" path="res://Levels/LevelTransition.tscn" id="1_43qqu"]
+
+[node name="Tutorial" type="Node2D"]
+
+[node name="tileLayers" parent="." instance=ExtResource("1_43qqu")]

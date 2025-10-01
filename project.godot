@@ -15,6 +15,10 @@ run/main_scene="res://scenes/playground.tscn"
 config/features=PackedStringArray("4.3", "C#", "Forward Plus")
 config/icon="res://Assets/gfx/icon.svg"
 
+[aseprite_importers]
+
+aseprite_executable_path="D:/SteamLibrary/steamapps/common/Aseprite/Aseprite.exe"
+
 [autoload]
 
 Globall="*res://scripts/globall.cs"
@@ -22,6 +26,10 @@ Globall="*res://scripts/globall.cs"
 [dotnet]
 
 project/assembly_name="2D Game with Oliver TM"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/nklbdev.aseprite_importers/plugin.cfg")
 
 [input]
 
@@ -58,6 +66,8 @@ chat={
 
 [layer_names]
 
+2d_render/layer_1="player"
+2d_render/layer_2="wall"
 2d_physics/layer_1="player"
 2d_physics/layer_2="ground"
 2d_physics/layer_3="decoration"
