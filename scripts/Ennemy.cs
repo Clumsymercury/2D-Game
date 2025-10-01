@@ -9,6 +9,7 @@ public partial class Ennemy : CharacterBody2D
 
     [Export]
     public float Speed = 40f;
+    [Export] public PackedScene EnnemyScene;
 
     private bool player_chase = false;
     private Node2D player;
@@ -24,6 +25,10 @@ public partial class Ennemy : CharacterBody2D
 
     private bool is_taking_damage = false;
 
+    
+
+    [Export]private CharacterBody2D Player;
+
     public override void _Ready()
     {
         GetNode<Timer>("take_damage_cooldown").Timeout += OnTakeDamageCooldownTimeout;
@@ -32,10 +37,25 @@ public partial class Ennemy : CharacterBody2D
         var anim = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
         anim.AnimationFinished += OnAnimationFinished;
     }
+    public override void _Process(double delta)
+    {
+        if(player!=null)
+        {
+            if (Player.Position.Y > Position.Y)
+            {
+                ZIndex = 1;
+            }
+            else
+            {
+                ZIndex = 6;
+            }
+        }
+        
+    }
     public override void _PhysicsProcess(double delta)
     {
 
-        
+
         UpdateHealth();
         deal_with_damage();
 
@@ -66,26 +86,31 @@ public partial class Ennemy : CharacterBody2D
             GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("IDLE");
             Velocity = Vector2.Zero;
         }
+
     }
 
     public void _on_detection_area_body_entered(Node2D body)
     {
 
-
-        GD.Print("Player detected!");
-        player = body;
-        player_chase = true;
+        if (body == Player)
+        {
+            GD.Print("Player detected!");
+            player = body;
+            player_chase = true;
+        }
+        
 
     }
 
     public void _on_detection_area_body_exited(Node2D body)
     {
 
-
-        GD.Print("Player left detection!");
-        player = null;
-        player_chase = false;
-
+        if (body == Player)
+        {
+            GD.Print("Player left detection!");
+            player = null;
+            player_chase = false;
+        }
     }
     public void ennemy()
     {
@@ -127,8 +152,8 @@ public partial class Ennemy : CharacterBody2D
                 anim_take_damage.Play("take_damage");
 
                 is_taking_damage = true; // bloque les  autre animations
-                
-                
+
+
                 GetNode<Timer>("take_damage_cooldown").Start();
                 can_take_damage = false;
 
@@ -139,12 +164,13 @@ public partial class Ennemy : CharacterBody2D
                     var anim_death = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
                     anim_death.Play("death");
                     EmitSignal("Enemy_died");//pour la mission
-                    globalInstance.AddXP(25);                                    
+                    globalInstance.AddXP(25);                   
+                    
                 }
             }
         }
     }
-    
+
     private void OnAnimationFinished()
     {
         var anim = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
@@ -178,7 +204,8 @@ public partial class Ennemy : CharacterBody2D
         {
             healthbar.Visible = true;
         }
-    }  
+    }
+    
 }
 
 

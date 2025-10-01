@@ -20,7 +20,13 @@ public partial class Npc : CharacterBody2D
 
 	private int enemy_kill_i = 0;
 	private int enemy_kill_f = 5;
-	
+
+	private bool in_chat_area = false;
+	private bool has_give_mission = false;
+
+	[Export] private CharacterBody2D Player;
+
+
 
 
 	private enum state
@@ -81,7 +87,7 @@ public partial class Npc : CharacterBody2D
 					break;
 			}
 		}
-		if (Input.IsActionPressed("chat"))
+		if (Input.IsActionPressed("chat") && in_chat_area)
 		{
 			GD.Print("chatting");
 			var dialogue = GetNode<Dialogue>("Dialogue");
@@ -89,7 +95,18 @@ public partial class Npc : CharacterBody2D
 			is_roaming = false;
 			is_chatting = true;
 			sprite.Play("idle");
+			has_give_mission = true;
 		}
+		
+		if (Player.Position.Y > Position.Y)
+		{
+			ZIndex = 1;
+		}
+		else
+		{
+			ZIndex = 6;
+		}
+		
 	}
 
 	private T choose<T>(T[] array)//le T rends possible pour que on puisse utilisr choose pour nimporte quel classe
@@ -161,18 +178,30 @@ public partial class Npc : CharacterBody2D
 	public void _on_Enemy_died()
 	{
 		var globalInstance = GetNode<globall>("/root/Globall");
-		enemy_kill_i++;
 		
+
 		var hud = GetTree().CurrentScene.GetNode<Godot.CanvasLayer>("HUD");
 		var quest_label = hud.GetNode<Godot.Label>("quest_label");
-
-		quest_label.Text = $"Tuer {enemy_kill_f} monstres ({enemy_kill_i}/{enemy_kill_f})";
+		if (has_give_mission)
+		{
+			enemy_kill_i++;
+			quest_label.Text = $"Tuer {enemy_kill_f} monstres ({enemy_kill_i}/{enemy_kill_f})";
+		}
+		
 
 		if (enemy_kill_i >= enemy_kill_f)
 		{
 			quest_label.Text = "Quête terminée ! Tu as merité une récompense (+25XP)";
 			globalInstance.AddXP(25);
-			
+
 		}
+	}
+	public void _on_chat_detection_area_mouse_entered()
+	{
+		in_chat_area = true;
+	}
+	public void _on_chat_detection_area_mouse_exited()
+	{
+		in_chat_area = false;
 	}
 }

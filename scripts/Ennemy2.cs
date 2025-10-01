@@ -4,8 +4,7 @@ using System;
 public partial class Ennemy2 : CharacterBody2D
 {
 
-    [Export]
-    public float Speed = 40f;
+    [Export] public float Speed = 40f;
 
     private bool player_chase = false;
     private Node2D player;
@@ -19,6 +18,8 @@ public partial class Ennemy2 : CharacterBody2D
     private bool is_dead = false;
 
     private bool is_taking_damage = false;
+    
+    [Export] private CharacterBody2D Player;
 
     public override void _Ready()
     {
@@ -28,7 +29,21 @@ public partial class Ennemy2 : CharacterBody2D
         var anim = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
         anim.AnimationFinished += OnAnimationFinished;
     }
-
+    public override void _Process(double delta)
+    {
+        if(player!=null)// pour etre sur que ca a bien charge mais oas beson de base 
+        {
+            if (Player.Position.Y > Position.Y)
+            {
+                ZIndex = 1;
+            }
+            else
+            {
+                ZIndex = 6;
+            }
+        }
+        
+    }
     public override void _PhysicsProcess(double delta)
     {
         UpdateHealth();
@@ -66,22 +81,21 @@ public partial class Ennemy2 : CharacterBody2D
 
     public void _on_detection_area_body_entered(Node2D body)
     {
-
-
-        GD.Print("Player detected!");
-        player = body;
-        player_chase = true;
-
+        if (body == Player)
+        {
+            GD.Print("Player detected!");
+            player = body;
+            player_chase = true;
+        }
     }
-
     public void _on_detection_area_body_exited(Node2D body)
     {
-
-
-        GD.Print("Player left detection!");
-        player = null;
-        player_chase = false;
-
+        if (body == Player)
+        {
+            GD.Print("Player left detection!");
+            player = null;
+            player_chase = false;
+        }
     }
     public void ennemy()
     {

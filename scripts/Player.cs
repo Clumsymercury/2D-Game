@@ -29,8 +29,6 @@ public partial class Player : CharacterBody2D
     private HUD _hud;
     public override void _Ready()
     {
-
-
         anim = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
         GetNode<Timer>("attack_cooldown").Start();
 
@@ -90,7 +88,7 @@ public partial class Player : CharacterBody2D
     {
         if (direction == Vector2.Zero)
         {
-            anim.Play("idle");  // Ensure animation name is lowercase "idle"
+            anim.Play("idle");  
             return;
         }
 

@@ -1,6 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://ddu6o8a58nhsh"]
+[gd_scene load_steps=23 format=3 uid="uid://ddu6o8a58nhsh"]
 
 [ext_resource type="Script" path="res://scripts/Ennemy.cs" id="1_djhcc"]
+[ext_resource type="PackedScene" uid="uid://djii10hxdowg0" path="res://ennemy.tscn" id="2_go5h3"]
 [ext_resource type="Texture2D" uid="uid://bq77svxq6cjc" path="res://Assets/gfx/slime.png" id="2_u2473"]
 [ext_resource type="Texture2D" uid="uid://th2ycptl5vgt" path="res://Assets/gfx/slime_white.png" id="3_olgdd"]
 
@@ -129,7 +130,7 @@ animations = [{
 radius = 80.6226
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jgxjv"]
-radius = 5.0
+radius = 4.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4f6yq"]
 radius = 9.0
@@ -139,6 +140,7 @@ visibility_layer = 15
 collision_layer = 3
 collision_mask = 15
 script = ExtResource("1_djhcc")
+EnnemyScene = ExtResource("2_go5h3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qx6xg")
@@ -151,7 +153,7 @@ collision_mask = 3
 shape = SubResource("CircleShape2D_tyant")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
+position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_jgxjv")
 
 [node name="ennemy_hitbox" type="Area2D" parent="."]

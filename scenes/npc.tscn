@@ -159,7 +159,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2772f"]
-radius = 5.0
+radius = 4.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ubakr"]
 radius = 19.0263
@@ -176,7 +176,7 @@ animation = &"walk_w"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 3
 visibility_layer = 15
-position = Vector2(0, 2)
+position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_2772f")
 
 [node name="chat_detection_area" type="Area2D" parent="."]
@@ -194,5 +194,7 @@ scale = Vector2(0.5, 0.5)
 
 [connection signal="body_entered" from="chat_detection_area" to="." method="_on_chat_detection_area_body_entered"]
 [connection signal="body_exited" from="chat_detection_area" to="." method="_on_chat_detection_area_body_exited"]
+[connection signal="mouse_entered" from="chat_detection_area" to="." method="_on_chat_detection_area_mouse_entered"]
+[connection signal="mouse_exited" from="chat_detection_area" to="." method="_on_chat_detection_area_mouse_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="dialogue_finished" from="Dialogue" to="." method="_on_dialogue_dialogue_finished"]

@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1758393454
+::res://::1759305568
 ennemy.tscn::PackedScene::7808010157384716029::1752774040::0::1::::<><>::res://scripts/Ennemy.cs<>uid://bq77svxq6cjc::::res://Assets/gfx/slime.png
 ::res://Assets/::1756672843
 ::res://Assets/gfx/::1758056460
@@ -32,28 +32,28 @@ slime.png::CompressedTexture2D::105219955805284820::1751895634::1752774040::1:::
 slime_white.png::CompressedTexture2D::1349721020357388659::1756587796::1756587807::1::::<><>::
 ::res://dialogue/::1758060434
 NPC_dialogue1.json::JSON::-1::1758060434::0::1::::<><>::
-::res://Resources/::1758352794
+::res://Resources/::1759094467
 Apple.tres::Resource::917887588814955177::1751234124::0::1::::<><>::res://scripts/inventory_item.cs
-pickup_item.tscn::PackedScene::414893572306601392::1758352794::0::1::::<><>::
-::res://scenes/::1758352795
+pickup_item.tscn::PackedScene::414893572306601392::1759094467::0::1::::<><>::
+::res://scenes/::1759094468
 character_body_2d.tscn::PackedScene::1529390050618641905::1752774275::0::1::::<><>::res://scripts/Player.cs<>uid://bdubbdtbrruop::::res://Assets/gfx/character.png
-dialogue.tscn::PackedScene::548406720265423744::1758352795::0::1::::<><>::uid://cqg6udh30t7ah::::res://Assets/gfx/inventory-slot.png<>res://scripts/Dialogue.cs
-ennemy.tscn::PackedScene::7413025099643260991::1758352795::0::1::::<><>::res://scripts/Ennemy.cs<>uid://bq77svxq6cjc::::res://Assets/gfx/slime.png<>uid://th2ycptl5vgt::::res://Assets/gfx/slime_white.png
-ennemy_2.tscn::PackedScene::4390461327694746638::1758352795::0::1::::<><>::res://scripts/Ennemy2.cs<>uid://bchskf8cga1fo::::res://Assets/gfx/log.png<>uid://dvuocv6ysh67p::::res://Assets/gfx/log_white_2.png
+dialogue.tscn::PackedScene::548406720265423744::1759094468::0::1::::<><>::uid://cqg6udh30t7ah::::res://Assets/gfx/inventory-slot.png<>res://scripts/Dialogue.cs
+ennemy.tscn::PackedScene::7413025099643260991::1759094467::0::1::::<><>::res://scripts/Ennemy.cs<>uid://djii10hxdowg0::::res://ennemy.tscn<>uid://bq77svxq6cjc::::res://Assets/gfx/slime.png<>uid://th2ycptl5vgt::::res://Assets/gfx/slime_white.png
+ennemy_2.tscn::PackedScene::4390461327694746638::1759094468::0::1::::<><>::res://scripts/Ennemy2.cs<>uid://bchskf8cga1fo::::res://Assets/gfx/log.png<>uid://dvuocv6ysh67p::::res://Assets/gfx/log_white_2.png
 HUD.cs::CSharpScript::-1::1758315464::0::1::::<>CanvasLayer<>::
-hud.tscn::PackedScene::9021797011001137703::1758352795::0::1::::<><>::uid://koxd0uo0pvhy::::res://Assets/gfx/Pixel Heart Sprite full.png<>res://scenes/HUD.cs<>uid://dotqajk1hg3x8::::res://Assets/gfx/Pixel Heart Sprite half.png<>uid://c65q4v1efghme::::res://Assets/gfx/Pixel Heart Sprite empty.png
-Npc.cs::CSharpScript::-1::1758352786::0::1::::<>CharacterBody2D<>::
-npc.tscn::PackedScene::7406461964164756993::1758352795::0::1::::<><>::uid://c3jhi1cfk7qlm::::res://Assets/gfx/Human-Worker-Red.png<>res://scenes/Npc.cs<>uid://h2wgcodsywku::::res://scenes/dialogue.tscn
-player.tscn::PackedScene::4827691015630234834::1758352795::0::1::::<><>::res://scripts/Player.cs<>uid://blcqd7alqkofl::::res://Assets/gfx/NewPlayer.png<>uid://bqqdwpag6sa0l::::res://Assets/gfx/New Piskel.png<>uid://cbocmc7cn0b3t::::res://Assets/gfx/New Piskel2.png
-playground.tscn::PackedScene::396891955061223819::1758352794::0::1::::<><>::uid://c6j47wlj6a6wa::::res://Assets/gfx/icon.svg<>res://scripts/Sprite2d.cs<>res://scripts/Label.cs<>uid://dlskumwbj6s7i::::res://Assets/gfx/Overworld.png<>uid://ddu6o8a58nhsh::::res://scenes/ennemy.tscn<>uid://ca1tmo0gwa3hu::::res://scenes/player.tscn<>uid://b3s1iyv52boew::::res://scenes/ennemy_2.tscn<>uid://d1shxcspl81x0::::res://scenes/hud.tscn<>uid://ddr0l1q7qx2ob::::res://scenes/npc.tscn
+hud.tscn::PackedScene::9021797011001137703::1759094468::0::1::::<><>::uid://koxd0uo0pvhy::::res://Assets/gfx/Pixel Heart Sprite full.png<>res://scenes/HUD.cs<>uid://dotqajk1hg3x8::::res://Assets/gfx/Pixel Heart Sprite half.png<>uid://c65q4v1efghme::::res://Assets/gfx/Pixel Heart Sprite empty.png
+Npc.cs::CSharpScript::-1::1759093506::0::1::::<>CharacterBody2D<>::
+npc.tscn::PackedScene::7406461964164756993::1759094468::0::1::::<><>::uid://c3jhi1cfk7qlm::::res://Assets/gfx/Human-Worker-Red.png<>res://scenes/Npc.cs<>uid://h2wgcodsywku::::res://scenes/dialogue.tscn
+player.tscn::PackedScene::4827691015630234834::1759094467::0::1::::<><>::res://scripts/Player.cs<>uid://blcqd7alqkofl::::res://Assets/gfx/NewPlayer.png<>uid://bqqdwpag6sa0l::::res://Assets/gfx/New Piskel.png<>uid://cbocmc7cn0b3t::::res://Assets/gfx/New Piskel2.png
+playground.tscn::PackedScene::396891955061223819::1759094467::0::1::::<><>::uid://c6j47wlj6a6wa::::res://Assets/gfx/icon.svg<>res://scripts/Sprite2d.cs<>res://scripts/Label.cs<>uid://dlskumwbj6s7i::::res://Assets/gfx/Overworld.png<>uid://ddu6o8a58nhsh::::res://scenes/ennemy.tscn<>uid://ca1tmo0gwa3hu::::res://scenes/player.tscn<>uid://b3s1iyv52boew::::res://scenes/ennemy_2.tscn<>uid://d1shxcspl81x0::::res://scenes/hud.tscn<>uid://ddr0l1q7qx2ob::::res://scenes/npc.tscn
 ::res://scripts/::1758057374
 CollisionShape2d.cs::CSharpScript::-1::1751922678::0::1::::<>CollisionShape2D<>::
-Dialogue.cs::CSharpScript::-1::1758234934::0::1::::<>Control<>::
+Dialogue.cs::CSharpScript::-1::1758570733::0::1::::<>Control<>::
 Ennemy2.cs::CSharpScript::-1::1756670534::0::1::::<>CharacterBody2D<>::
-Ennemy.cs::CSharpScript::-1::1758352257::0::1::::<>CharacterBody2D<>::
-globall.cs::CSharpScript::-1::1757255779::0::1::::<>Node<>::
+Ennemy.cs::CSharpScript::-1::1759094459::0::1::::<>CharacterBody2D<>::
+globall.cs::CSharpScript::-1::1758570733::0::1::::<>Node<>::
 inventory_item.cs::CSharpScript::-1::1751234124::0::1::::<><>::
 Label.cs::CSharpScript::-1::1751233885::0::1::::<>Label<>::
 main.cs::CSharpScript::-1::1739370048::0::1::::<><>::
-Player.cs::CSharpScript::-1::1757781513::0::1::::<>CharacterBody2D<>::
+Player.cs::CSharpScript::-1::1758834444::0::1::::<>CharacterBody2D<>::
 Sprite2d.cs::CSharpScript::-1::1751919475::0::1::::<>Node2D<>::
