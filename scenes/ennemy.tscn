@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ddu6o8a58nhsh"]
+[gd_scene load_steps=26 format=3 uid="uid://ddu6o8a58nhsh"]
 
 [ext_resource type="Script" path="res://scripts/Ennemy.cs" id="1_djhcc"]
 [ext_resource type="PackedScene" uid="uid://djii10hxdowg0" path="res://ennemy.tscn" id="2_go5h3"]
@@ -40,6 +40,18 @@ region = Rect2(96, 384, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_xnsb1"]
 atlas = ExtResource("2_u2473")
 region = Rect2(128, 384, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7i2b"]
+atlas = ExtResource("2_u2473")
+region = Rect2(0, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbgey"]
+atlas = ExtResource("2_u2473")
+region = Rect2(32, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ei0p8"]
+atlas = ExtResource("2_u2473")
+region = Rect2(64, 288, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_73bh7"]
 atlas = ExtResource("3_olgdd")
@@ -102,6 +114,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_j7i2b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbgey")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ei0p8")
+}],
+"loop": false,
+"name": &"knockback",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_73bh7")
 }],
 "loop": false,
@@ -133,7 +159,7 @@ radius = 80.6226
 radius = 4.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4f6yq"]
-radius = 9.0
+radius = 11.0454
 
 [node name="ennemy" type="CharacterBody2D" groups=["Enemies"]]
 visibility_layer = 15
@@ -144,7 +170,7 @@ EnnemyScene = ExtResource("2_go5h3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qx6xg")
-animation = &"take_damage"
+animation = &"knockback"
 
 [node name="detection area" type="Area2D" parent="."]
 collision_mask = 3

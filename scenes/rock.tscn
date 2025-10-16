@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://dpc78a17871oq"]
+
+[ext_resource type="Script" path="res://scripts/Rock.cs" id="1_0xn5x"]
+[ext_resource type="Texture2D" uid="uid://c3d3x70xxsogu" path="res://Assets/gfx/objects.png" id="2_d2oge"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1116u"]
+atlas = ExtResource("2_d2oge")
+region = Rect2(350, 0, 35, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ecqwl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1116u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qcm07"]
+size = Vector2(25, 13)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_887pb"]
+radius = 24.0208
+
+[node name="rock" type="CharacterBody2D"]
+collision_layer = 3
+collision_mask = 15
+script = ExtResource("1_0xn5x")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ecqwl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 4.5)
+shape = SubResource("RectangleShape2D_qcm07")
+
+[node name="area_can_take_damage" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area_can_take_damage"]
+shape = SubResource("CircleShape2D_887pb")
+
+[connection signal="body_entered" from="area_can_take_damage" to="." method="_on_area_can_take_damage_body_entered"]
+[connection signal="body_exited" from="area_can_take_damage" to="." method="_on_area_can_take_damage_body_exited"]

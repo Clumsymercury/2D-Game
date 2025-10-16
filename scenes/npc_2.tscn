@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://luiw661kwf1j"]
+
+[ext_resource type="Script" path="res://scripts/Npc2.cs" id="1_iyatn"]
+[ext_resource type="PackedScene" uid="uid://h2wgcodsywku" path="res://scenes/dialogue.tscn" id="1_npp5o"]
+[ext_resource type="Texture2D" uid="uid://c3jhi1cfk7qlm" path="res://Assets/gfx/Human-Worker-Red.png" id="2_r8xa1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7wgn"]
+atlas = ExtResource("2_r8xa1")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0ps8"]
+atlas = ExtResource("2_r8xa1")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t5vlp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d7wgn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0ps8")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_24eys"]
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1twwo"]
+radius = 16.0
+
+[node name="npc_2" type="CharacterBody2D"]
+script = ExtResource("1_iyatn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_t5vlp")
+animation = &"idle"
+frame_progress = 0.681823
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_24eys")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_1twwo")
+
+[node name="Dialogue" parent="." instance=ExtResource("1_npp5o")]
+offset_left = 3.0
+offset_top = 5.0
+offset_right = 3.0
+offset_bottom = 6.0
+scale = Vector2(0.5, 0.5)
+d_file = "res://dialogue/villagerNPC_dialogue.json"
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="dialogue_finished" from="Dialogue" to="." method="_on_dialogue_dialogue_finished"]

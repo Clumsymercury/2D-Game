@@ -26,6 +26,8 @@ public partial class Player : CharacterBody2D
 
     private globall globalInstance;//
 
+    [Export] private Rock rock_node;
+
     private HUD _hud;
     public override void _Ready()
     {
@@ -126,6 +128,7 @@ public partial class Player : CharacterBody2D
 
     private void slash()
     {
+
         Vector2 mousePosition = GetGlobalMousePosition();
         Vector2 direction = mousePosition - GlobalPosition;
         float angle = direction.Angle();  // en radians
@@ -144,7 +147,7 @@ public partial class Player : CharacterBody2D
         if (angle >= -2.0f && angle <= 0.4f)
         {
             // Derrière le joueur
-            slashAnim.ZIndex = ZIndex - 0;
+            slashAnim.ZIndex = ZIndex + 1;
         }
         else
         {
@@ -152,6 +155,7 @@ public partial class Player : CharacterBody2D
             slashAnim.ZIndex = ZIndex + 2;
         }
         Speed = 10;
+        rock_node.hit();
     }
 
     private void OnSlashAnimationFinished()

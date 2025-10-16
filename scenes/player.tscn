@@ -306,6 +306,7 @@ shape = SubResource("CircleShape2D_arhxb")
 [node name="attack_cooldown" type="Timer" parent="."]
 
 [node name="regin_timer" type="Timer" parent="."]
+wait_time = 5.0
 autostart = true
 
 [connection signal="animation_finished" from="AnimatedSprite2D2" to="." method="_on_animated_sprite_2d_2_animation_finished"]

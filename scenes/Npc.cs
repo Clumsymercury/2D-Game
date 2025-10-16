@@ -100,7 +100,7 @@ public partial class Npc : CharacterBody2D
 		
 		if (Player.Position.Y > Position.Y)
 		{
-			ZIndex = 1;
+			ZIndex = -1;
 		}
 		else
 		{

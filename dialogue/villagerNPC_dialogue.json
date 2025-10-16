@@ -1,0 +1,10 @@
+[
+  { "name": "Villageois", "text": "Hé toi ! Le pont vers les grottes est bloqué." },
+  { "name": "Player", "text": "Hein ? Bloqué ? Par quoi ?" },
+  { "name": "Villageois", "text": "Un gros rocher est tombé dessus pendant la tempête." },
+  { "name": "Player", "text": "Quoi ?! Sérieux ?" },
+  { "name": "Villageois", "text": "Oui. On ne peut plus passer du tout." },
+  { "name": "Villageois", "text": "Si tu veux aller aux grottes, il faudra le casser." },
+  { "name": "Player", "text": "D’accord... je vais essayer." },
+  { "name": "Villageois", "text": "Bonne chance ! Et fais attention à toi." }
+]

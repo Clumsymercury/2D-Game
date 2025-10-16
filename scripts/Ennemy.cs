@@ -11,6 +11,10 @@ public partial class Ennemy : CharacterBody2D
     public float Speed = 40f;
     [Export] public PackedScene EnnemyScene;
 
+    [Export] private float KnockbackSpeed = 40f;
+    [Export] private float StunDuration = 2f;
+    private bool is_stunned = false;
+
     private bool player_chase = false;
     private Node2D player;
 
@@ -43,7 +47,7 @@ public partial class Ennemy : CharacterBody2D
         {
             if (Player.Position.Y > Position.Y)
             {
-                ZIndex = 1;
+                ZIndex = -1;
             }
             else
             {
@@ -59,9 +63,10 @@ public partial class Ennemy : CharacterBody2D
         UpdateHealth();
         deal_with_damage();
 
-        if (is_dead || is_taking_damage)
+        if (is_dead || is_taking_damage|| is_stunned)
         {
-            Velocity = Vector2.Zero;
+            //Velocity = Vector2.Zero;
+            MoveAndSlide();
             return;
         }
 
@@ -148,12 +153,16 @@ public partial class Ennemy : CharacterBody2D
                 //prendre des degats pa apport au niveau                 
                 health -= globalInstance.player_damage;
 
-                var anim_take_damage = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
-                anim_take_damage.Play("take_damage");
+                var anim = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+                anim.Play("knockback"); // ou "knockback" si tu préfères
+                is_taking_damage = true;
+                is_stunned = true;
 
-                is_taking_damage = true; // bloque les  autre animations
+                // Knockback
+                Vector2 direction = (Player.GlobalPosition - GlobalPosition).Normalized();
+                Velocity = direction * -KnockbackSpeed;
 
-
+                
                 GetNode<Timer>("take_damage_cooldown").Start();
                 can_take_damage = false;
 
@@ -170,15 +179,16 @@ public partial class Ennemy : CharacterBody2D
             }
         }
     }
+    
 
     private void OnAnimationFinished()
     {
         var anim = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 
-        if (anim.Animation == "take_damage")
+        if (anim.Animation == "knockback")
         {
             is_taking_damage = false;
-
+            is_stunned = false;
             // remrt animation walk
             if (!is_dead)
             {
