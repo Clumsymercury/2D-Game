@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("2D Game with Oliver TM")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8bc2dc60da748aebab212bc348eed573cb2e763f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f76a802519eb8d21959ee08edd2b9914983f2d29")]
 [assembly: System.Reflection.AssemblyProductAttribute("2D Game with Oliver TM")]
 [assembly: System.Reflection.AssemblyTitleAttribute("2D Game with Oliver TM")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
