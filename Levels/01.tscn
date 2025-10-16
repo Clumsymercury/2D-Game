@@ -4759,7 +4759,6 @@ physics_layer_0/collision_layer = 24
 sources/0 = SubResource("TileSetAtlasSource_44g0p")
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xwh7p"]
-load_path = "res://.godot/imported/wholebushleaves.aseprite-cc8b6e9d783cce80c6f43a7ebc9b3ea4.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8y8jp"]
 texture = SubResource("CompressedTexture2D_xwh7p")
