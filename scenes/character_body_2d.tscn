@@ -52,6 +52,9 @@ animations = [{
 }]
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+y_sort_enabled = true
+collision_layer = 3
+collision_mask = 252
 script = ExtResource("1_8jyfh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

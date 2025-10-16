@@ -265,13 +265,13 @@ animations = [{
 size = Vector2(11.6381, 10.1865)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_arhxb"]
-radius = 10.4403
+radius = 7.07107
 
 [node name="player" type="CharacterBody2D"]
 visibility_layer = 15
-z_as_relative = false
+y_sort_enabled = true
 collision_layer = 3
-collision_mask = 14
+collision_mask = 252
 script = ExtResource("1_fk38b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -280,7 +280,7 @@ sprite_frames = SubResource("SpriteFrames_g4a4l")
 animation = &"idle"
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
-position = Vector2(-9.53674e-07, -7.15256e-07)
+position = Vector2(1.7053e-13, 1.7053e-13)
 rotation = -0.00140768
 sprite_frames = SubResource("SpriteFrames_p8811")
 animation = &"slash"
@@ -288,11 +288,13 @@ frame = 3
 frame_progress = 1.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(4, 4)
+y_sort_enabled = true
+zoom = Vector2(5, 5)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+y_sort_enabled = true
 position = Vector2(-7.24196e-06, 5.49998)
 rotation = 3.14159
 scale = Vector2(1.0311, 0.490846)
