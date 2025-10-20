@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=3 uid="uid://bqeynxjuba376"]
+
+[ext_resource type="Script" path="res://scripts/SceneTransitionAnimation.cs" id="1_0scch"]
+
+[sub_resource type="Animation" id="Animation_7vlwh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ljdh7"]
+resource_name = "fade_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_p1lhn"]
+resource_name = "fade_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t6tw4"]
+_data = {
+"RESET": SubResource("Animation_7vlwh"),
+"fade_in": SubResource("Animation_ljdh7"),
+"fade_out": SubResource("Animation_p1lhn")
+}
+
+[node name="Scene_transition_animation" type="Node2D"]
+script = ExtResource("1_0scch")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 100
+offset_left = -37073.0
+offset_top = -16873.0
+offset_right = 46960.0
+offset_bottom = 23872.0
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_t6tw4")
+}

@@ -25,7 +25,7 @@ public partial class Npc2 : CharacterBody2D
 
 		if (Player.Position.Y > Position.Y)
 		{
-			ZIndex = -1;
+			ZIndex = 0;
 		}
 		else
 		{

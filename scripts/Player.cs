@@ -28,7 +28,13 @@ public partial class Player : CharacterBody2D
 
     [Export] private Rock rock_node;
 
-    private HUD _hud;
+    private bool dash_in_progress = false; // dash in progress
+    private float dash_distance = 50f;    // how far the dash goes
+    private float dash_speed = 110f;       // speed during dash
+    private Vector2 dash_direction;
+    private Vector2 dash_target;
+    private bool dash_on_cooldown = false;
+
     public override void _Ready()
     {
         anim = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
@@ -41,8 +47,12 @@ public partial class Player : CharacterBody2D
         slashAnim.AnimationFinished += OnSlashAnimationFinished;
 
         globalInstance = GetNode<globall>("/root/Globall");//
-        UpdateHealth();
-        _hud = GetTree().Root.GetNode<HUD>("Playground/HUD");
+        //UpdateHealth();
+        HUD hud = GetTree().Root.GetNode<HUD>("HUD"); 
+        if (hud != null)
+            hud.UpdateHearts(health);
+        else
+            GD.PrintErr("HUD singleton not found!");
     }
 
     public override void _Input(InputEvent @event)
@@ -53,24 +63,44 @@ public partial class Player : CharacterBody2D
 
     public override void _PhysicsProcess(double delta)
     {
+        if (Input.IsActionJustPressed("MoveUp"))
+        GD.Print("MoveUp pressed");
 
         UpdateHealth();
         base._PhysicsProcess(delta);
 
         Direction = Vector2.Zero;
 
-        if (Input.IsActionPressed("ui_right"))
-            Direction.X += 1;
-        if (Input.IsActionPressed("ui_left"))
-            Direction.X -= 1;
-        if (Input.IsActionPressed("ui_down"))
-            Direction.Y += 1;
-        if (Input.IsActionPressed("ui_up"))
-            Direction.Y -= 1;
-
-        Direction = Direction.Normalized();
+    if (!dash_in_progress)
+    {
+        
+        Direction = Input.GetVector("MoveLeft", "MoveRight", "MoveUp", "MoveDown");
         Velocity = Direction * Speed;
         MoveAndSlide();
+    }
+    else
+    {
+        KinematicCollision2D collision = MoveAndCollide(dash_direction * dash_speed * (float)delta);
+
+        if (collision != null)
+        {
+            // s'arrete si ca touche un mur
+            dash_in_progress = false;
+            Velocity = Vector2.Zero;
+            Speed = 60;
+        }
+
+        // ca s'arrete quand ca a atteint le dash_target
+        if ((dash_target - GlobalPosition).Dot(dash_direction) <= 0f)
+        {
+            GlobalPosition = dash_target;
+            dash_in_progress = false;
+            Velocity = Vector2.Zero;
+            Speed = 60;
+        }
+    }
+        
+        
 
         UpdateAnimation(Direction);
         ennemy_attack();
@@ -82,12 +112,14 @@ public partial class Player : CharacterBody2D
             GD.Print("player is dead");
             QueueFree();
         }
+        
     }
 
 
 
     private void UpdateAnimation(Vector2 direction)
     {
+        if (dash_in_progress) return; 
         if (direction == Vector2.Zero)
         {
             anim.Play("idle");  
@@ -120,9 +152,15 @@ public partial class Player : CharacterBody2D
     {
 
 
-        if (Input.IsActionJustPressed("attack")) 
+        if (Input.IsActionJustPressed("attack"))
         {
             slash();
+        }
+        if (Input.IsActionJustPressed("dash") && !dash_in_progress && !dash_on_cooldown)
+        {
+            start_dash();
+            dash_on_cooldown = true;
+            GetNode<Timer>("dash_cooldown_timer").Start();
         }
     }
 
@@ -147,7 +185,7 @@ public partial class Player : CharacterBody2D
         if (angle >= -2.0f && angle <= 0.4f)
         {
             // Derrière le joueur
-            slashAnim.ZIndex = ZIndex + 1;
+            slashAnim.ZIndex = ZIndex - 1;
         }
         else
         {
@@ -157,7 +195,21 @@ public partial class Player : CharacterBody2D
         Speed = 10;
         rock_node.hit();
     }
+    private void start_dash()
+    {
+        Vector2 mouse_position = GetGlobalMousePosition();
+        dash_direction = (mouse_position - GlobalPosition).Normalized();
+        dash_target = GlobalPosition + dash_direction * dash_distance;
 
+        dash_in_progress = true;
+        Speed = 0; // arrete le mouvement de base 
+
+       
+        if (dash_direction.X >= 0)
+            anim.Play("dash_right");
+        else
+            anim.Play("dash_left");
+    }
     private void OnSlashAnimationFinished()
     {
         slashAnim.Visible = false;
@@ -212,8 +264,11 @@ public partial class Player : CharacterBody2D
 
     public void UpdateHealth()
     {
-        if (_hud == null) return;
-        _hud.UpdateHearts(health);
+        HUD hud = GetTree().Root.GetNode<HUD>("HUD");
+        if (hud != null)
+            hud.UpdateHearts(health);
+        else
+            GD.PrintErr("HUD singleton not found!");
     }
 
     private void _on_regin_timer_timeout()
@@ -227,6 +282,10 @@ public partial class Player : CharacterBody2D
 
         if (health <= 0)
             health = 0;
+    }
+    private void _on_dash_cooldown_timer_timeout()
+    {
+        dash_on_cooldown = false;
     }
     
 }

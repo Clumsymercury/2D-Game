@@ -9,8 +9,11 @@ public partial class globall : Node
     public int player_xp = 0;
     public int player_xp_max = 100;
     public int player_level = 1;
-    public int player_damage = 20;   
+    public int player_damage = 20;
     public int damage_per_level = 5; // a changer ?
+
+    public bool castle_exited = false;
+    public bool cave_exited = false;
 
     public void AddXP(int amount)
     {

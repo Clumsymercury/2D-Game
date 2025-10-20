@@ -1,4 +1,5 @@
 // File: Scripts/GlobalSaveManager.cs
+/*
 using Godot;
 using System;
 using GDict = Godot.Collections.Dictionary;
@@ -132,3 +133,4 @@ public partial class GlobalSaveManager : Node
         currentSave["scene_path"] = GetTree().CurrentScene?.SceneFilePath ?? "";
     }
 }
+*/

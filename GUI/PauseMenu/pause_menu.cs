@@ -1,3 +1,4 @@
+/*
 // File: Scripts/PauseController.cs
 using Godot;
 
@@ -68,3 +69,4 @@ public partial class PauseController : Node
             if (child is Node n) SetProcessModeRecursive(n, mode);
     }
 }
+*/
