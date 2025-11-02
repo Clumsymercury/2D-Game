@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://b8s8f0idymqdw"]
+[gd_scene load_steps=20 format=4 uid="uid://bih6nivt0lml5"]
 
 [ext_resource type="Texture2D" uid="uid://dlskumwbj6s7i" path="res://Assets/gfx/Overworld.png" id="1_3q5u4"]
 [ext_resource type="Script" path="res://scripts/Cave.cs" id="1_suwdc"]
@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ca1tmo0gwa3hu" path="res://scenes/player.tscn" id="3_hpsjo"]
 [ext_resource type="Texture2D" uid="uid://cy8yktff2rv27" path="res://Assets/gfx/Inner.png" id="4_xw8at"]
 [ext_resource type="Texture2D" uid="uid://c3d3x70xxsogu" path="res://Assets/gfx/objects.png" id="5_vjx57"]
-[ext_resource type="PackedScene" uid="uid://bqeynxjuba376" path="res://scenes/scene_transition_animation.tscn" id="7_y0a4i"]
+[ext_resource type="PackedScene" uid="uid://u6717qvc5xm2" path="res://scenes/scene_transition_animation.tscn" id="7_y0a4i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1q7i4"]
 texture = ExtResource("1_3q5u4")

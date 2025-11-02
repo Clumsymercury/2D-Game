@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Boss : CharacterBody2D
+public partial class BossEnnemy : CharacterBody2D
 {
 	[Export] public PackedScene fireball_scene;
     [Export] public PackedScene magic_circle_scene;

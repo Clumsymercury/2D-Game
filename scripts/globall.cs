@@ -12,8 +12,12 @@ public partial class globall : Node
     public int player_damage = 20;
     public int damage_per_level = 5; // a changer ?
 
-    public bool castle_exited = false;
+    public bool castle1_exited = false;
     public bool cave_exited = false;
+
+    public bool ocean_exited = false;
+
+    public bool boss_exited = false;
 
     public void AddXP(int amount)
     {
