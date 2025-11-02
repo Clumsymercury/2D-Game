@@ -27,7 +27,7 @@ public partial class HUD : CanvasLayer
 		half_heart = GD.Load<Texture2D>("res://Assets/gfx/Pixel Heart Sprite half.png");
 		empty_heart = GD.Load<Texture2D>("res://Assets/gfx/Pixel Heart Sprite empty.png");
 
-		xp_bar = GetNode<ProgressBar>("Control/XPBar");
+		xp_bar = GetNode<ProgressBar>("XPBar");
 		xp_label = xp_bar.GetNode<Godot.Label>("Label");
 	}
 

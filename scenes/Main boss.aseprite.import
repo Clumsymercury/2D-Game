@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdckympk3jv4k"
-valid=false
+uid="uid://bb4ulsj6gt40j"
+path="res://.godot/imported/Main boss.aseprite-e6cf022f34e0439f77084830445978c0.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://Main boss.aseprite"
+source_file="res://scenes/Main boss.aseprite"
+dest_files=["res://.godot/imported/Main boss.aseprite-e6cf022f34e0439f77084830445978c0.ctex"]
 
 [params]
 

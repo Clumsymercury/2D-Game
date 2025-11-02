@@ -40,20 +40,33 @@ texture = SubResource("AtlasTexture_nxonp")
 layout_mode = 2
 texture = SubResource("AtlasTexture_x5pip")
 
-[node name="XPBar" type="ProgressBar" parent="Control"]
-layout_mode = 0
-offset_left = 362.0
-offset_top = 613.0
-offset_right = 741.0
-offset_bottom = 640.0
+[node name="XPBar" type="ProgressBar" parent="."]
+anchors_preset = -1
+anchor_left = 0.48
+anchor_top = 0.948
+anchor_right = 0.52
+anchor_bottom = 0.948
+offset_left = -189.5
+offset_top = -27.0
+offset_right = 189.5
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 10
 show_percentage = false
 
-[node name="Label" type="Label" parent="Control/XPBar"]
-layout_mode = 0
-offset_left = 166.0
-offset_top = 2.0
-offset_right = 207.0
-offset_bottom = 25.0
+[node name="Label" type="Label" parent="XPBar"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.5
+offset_top = -23.0
+offset_right = 20.5
+grow_horizontal = 2
+grow_vertical = 0
 
 [node name="quest_label" type="Label" parent="."]
 offset_top = 39.0

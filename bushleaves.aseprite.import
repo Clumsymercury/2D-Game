@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://rnteax1kmb5i"
-path="res://.godot/imported/bushleaves.aseprite-69905dbd373fd8d198873d3eb58f8367.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://bushleaves.aseprite"
-dest_files=["res://.godot/imported/bushleaves.aseprite-69905dbd373fd8d198873d3eb58f8367.ctex"]
 
 [params]
 
