@@ -161,13 +161,14 @@ radius = 4.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_4f6yq"]
 radius = 11.0454
 
-[node name="ennemy" type="CharacterBody2D" groups=["Enemies"]]
+[node name="ennemy" type="CharacterBody2D" node_paths=PackedStringArray("Player") groups=["Enemies"]]
 visibility_layer = 15
 position = Vector2(-6, 0)
 collision_layer = 3
 collision_mask = 15
 script = ExtResource("1_djhcc")
 EnnemyScene = ExtResource("2_go5h3")
+Player = NodePath("")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qx6xg")

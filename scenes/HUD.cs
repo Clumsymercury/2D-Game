@@ -31,7 +31,7 @@ public partial class HUD : CanvasLayer
 		xp_label = xp_bar.GetNode<Godot.Label>("Label");
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	// appelé a chaque frame (delta)
 	public override void _Process(double delta)
 	{
 		var globalInstance = GetNode<globall>("/root/Globall");

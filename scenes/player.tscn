@@ -1,8 +1,11 @@
-[gd_scene load_steps=48 format=3 uid="uid://ca1tmo0gwa3hu"]
+[gd_scene load_steps=51 format=3 uid="uid://ca1tmo0gwa3hu"]
 
 [ext_resource type="Script" path="res://scripts/Player.cs" id="1_fk38b"]
+[ext_resource type="Resource" uid="uid://dp58b7715hm0t" path="res://inventory/player_inv.tres" id="2_0lnn3"]
 [ext_resource type="Texture2D" uid="uid://blcqd7alqkofl" path="res://Assets/gfx/NewPlayer.png" id="2_52ejh"]
 [ext_resource type="Texture2D" uid="uid://cbocmc7cn0b3t" path="res://Assets/gfx/New Piskel2.png" id="4_6qxoe"]
+[ext_resource type="PackedScene" uid="uid://etmum60n3xtv" path="res://scenes/inv_ui.tscn" id="5_ty0q4"]
+[ext_resource type="Script" path="res://inventory/g_dscript.gd" id="6_m281r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jdqyf"]
 atlas = ExtResource("4_6qxoe")
@@ -346,7 +349,7 @@ size = Vector2(11.6381, 10.1865)
 [sub_resource type="CircleShape2D" id="CircleShape2D_arhxb"]
 radius = 7.07107
 
-[node name="player" type="CharacterBody2D"]
+[node name="player" type="CharacterBody2D" groups=["player"]]
 visibility_layer = 15
 y_sort_enabled = true
 collision_layer = 3
@@ -367,6 +370,7 @@ frame = 3
 frame_progress = 1.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
+visibility_layer = 15
 y_sort_enabled = true
 zoom = Vector2(5, 5)
 position_smoothing_enabled = true
@@ -380,16 +384,36 @@ scale = Vector2(1.0311, 0.490846)
 shape = SubResource("RectangleShape2D_bbgap")
 
 [node name="player_hitbox" type="Area2D" parent="."]
+light_mask = 2
+visibility_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_hitbox"]
+light_mask = 2
+visibility_layer = 2
 shape = SubResource("CircleShape2D_arhxb")
 
 [node name="attack_cooldown" type="Timer" parent="."]
 
 [node name="regin_timer" type="Timer" parent="."]
+wait_time = 5.0
 autostart = true
 
 [node name="dash_cooldown_timer" type="Timer" parent="."]
+
+[node name="Inv_UI" parent="." instance=ExtResource("5_ty0q4")]
+z_index = 100
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 14.0
+offset_top = -64.0
+offset_right = 115.0
+offset_bottom = 32.5
+grow_vertical = 2
+
+[node name="GDscript" type="Node2D" parent="."]
+script = ExtResource("6_m281r")
+inv = ExtResource("2_0lnn3")
 
 [connection signal="animation_finished" from="AnimatedSprite2D2" to="." method="_on_animated_sprite_2d_2_animation_finished"]
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]

@@ -17,14 +17,14 @@ public partial class Cave : Node2D
 
         if (_Scene_transition_animation == null)
         {
-            GD.PrintErr("❌ AnimationPlayer not found at 'Scene_transition_animation/AnimationPlayer'");
+            GD.PrintErr("AnimationPlayer not found at 'Scene_transition_animation/AnimationPlayer'");
             return;
         }
 
         var colorRect = GetNodeOrNull<ColorRect>("Scene_transition_animation/ColorRect");
         if (colorRect == null)
         {
-            GD.PrintErr("❌ ColorRect not found at 'Scene_transition_animation/ColorRect'");
+            GD.PrintErr("ColorRect not found at 'Scene_transition_animation/ColorRect'");
             return;
         }
 

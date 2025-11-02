@@ -15,7 +15,7 @@ public partial class Playground : Node2D
 
         _Scene_transition_animation = GetNode<AnimationPlayer>("Scene_transition_animation/AnimationPlayer");
 
-        if (globalInstance.castle_exited)
+        if(globalInstance.castle_exited)
         {
             await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
             _Scene_transition_animation.Play("fade_out");
@@ -26,7 +26,7 @@ public partial class Playground : Node2D
 
             globalInstance.castle_exited = false;
         }
-        if (globalInstance.cave_exited)
+        if(globalInstance.cave_exited)
         {
             await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
             _Scene_transition_animation.Play("fade_out");
