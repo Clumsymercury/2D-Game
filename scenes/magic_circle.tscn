@@ -1,0 +1,94 @@
+[gd_scene load_steps=14 format=3 uid="uid://dt7f5qqb801yy"]
+
+[ext_resource type="Script" path="res://scripts/MagicCircle.cs" id="1_vvwoc"]
+[ext_resource type="Texture2D" uid="uid://c3d3x70xxsogu" path="res://Assets/gfx/objects.png" id="2_rrr17"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nqsd4"]
+radius = 14.0357
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7a05v"]
+atlas = ExtResource("2_rrr17")
+region = Rect2(256, 35, 32, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xvtdg"]
+atlas = ExtResource("2_rrr17")
+region = Rect2(288, 35, 32, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8o0mr"]
+atlas = ExtResource("2_rrr17")
+region = Rect2(320, 35, 32, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nwbxe"]
+atlas = ExtResource("2_rrr17")
+region = Rect2(352, 35, 32, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dpqhm"]
+atlas = ExtResource("2_rrr17")
+region = Rect2(384, 35, 32, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fl78w"]
+atlas = ExtResource("2_rrr17")
+region = Rect2(416, 35, 32, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6qxf"]
+atlas = ExtResource("2_rrr17")
+region = Rect2(448, 35, 32, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frhhp"]
+atlas = ExtResource("2_rrr17")
+region = Rect2(480, 35, 32, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pppan"]
+atlas = ExtResource("2_rrr17")
+region = Rect2(480, 245, 32, 35)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kxppa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7a05v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xvtdg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8o0mr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nwbxe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dpqhm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fl78w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k6qxf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frhhp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pppan")
+}],
+"loop": true,
+"name": &"magic_circle",
+"speed": 5.0
+}]
+
+[node name="MagicCircle" type="Area2D"]
+script = ExtResource("1_vvwoc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nqsd4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 10
+position = Vector2(0, 4)
+scale = Vector2(1.27143, 1.24286)
+sprite_frames = SubResource("SpriteFrames_kxppa")
+animation = &"magic_circle"
+frame_progress = 0.777914
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

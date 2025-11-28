@@ -35,6 +35,9 @@ public partial class Player : CharacterBody2D
     private Vector2 dash_target;
     private bool dash_on_cooldown = false;
 
+    [Export]
+    public Resource Inv { get; set; }
+
     public override void _Ready()
     {
         anim = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
@@ -99,8 +102,6 @@ public partial class Player : CharacterBody2D
             Speed = 60;
         }
     }
-        
-        
 
         UpdateAnimation(Direction);
         ennemy_attack();
@@ -241,9 +242,7 @@ public partial class Player : CharacterBody2D
     {
         enemy_attack_cooldown = true;
     }
-
-
-
+    
     public void ennemy_attack()
     {
         if (enemy_inattack_range && enemy_attack_cooldown)
@@ -287,7 +286,14 @@ public partial class Player : CharacterBody2D
     {
         dash_on_cooldown = false;
     }
-    
+    /*
+    public void Collect(Resource item)
+    {
+        GD.Print("collect function called");  
+
+        Inv.Call("insert", item); //appel le truc an GD script
+    }
+    */
 }
 
  

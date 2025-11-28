@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class AppleCollectable : Area2D
+public partial class AppleCollectable : StaticBody2D
 {
 
     private AnimatedSprite2D animated_sprite_2d;
@@ -9,12 +9,18 @@ public partial class AppleCollectable : Area2D
 
     public override void _Ready()
     {
-        fallfromtree();
         animated_sprite_2d = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
         animation_2d = GetNode<AnimationPlayer>("AnimationPlayer");
+        if (animated_sprite_2d == null)
+        GD.PrintErr("AnimatedSprite2D not found!");
+
+        if (animation_2d == null)
+            GD.PrintErr("AnimationPlayer not found!");
+            fallfromtree();
     }
     private async void fallfromtree()
     {
+
         animation_2d.Play("fallingfromtree");
 
         
@@ -27,5 +33,4 @@ public partial class AppleCollectable : Area2D
         await ToSignal(GetTree().CreateTimer(0.3), "timeout");
         QueueFree();
     }
-
 }

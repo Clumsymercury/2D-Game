@@ -3,13 +3,17 @@ using System;
 
 public partial class AppleTree : Node2D
 {
-    string state = "no apples";
+    string state = "apples";
     private bool player_in_area = false;
 
-    [Export] private CharacterBody2D Player;
+    [Export] private Player Player;
     private Node2D player;
+    
 
     private PackedScene apple = GD.Load<PackedScene>("res://scenes/apple_collectable.tscn");
+
+    [Export]
+    public Resource item { get; set; }
 
     public override void _Ready()
     {
@@ -68,12 +72,34 @@ public partial class AppleTree : Node2D
     {
         var growth_timer = GetNodeOrNull<Timer>("growth_timer");
 
-        var apple_instance = apple.Instantiate() as Node2D;
-        var marker = GetNode<Node2D>("Marker2D"); 
-        
-        apple_instance.GlobalPosition = marker.GlobalPosition;
+        var apple_instance = apple.Instantiate() as StaticBody2D;
+        if (apple_instance == null)
+        {
+            GD.PrintErr("Failed to instantiate apple!");
+            return;
+        }
 
+        var marker = GetNode<Node2D>("Marker2D"); 
+        if (marker == null)
+        {
+            GD.PrintErr("Marker2D not found!");
+            return;
+        }
+
+        apple_instance.Position = marker.Position;
         AddChild(apple_instance);
+        GD.Print("Apple spawned at: ", apple_instance.Position);
+
+        
+        Node inventoryNode = Player.GetNode("GDscript");
+        if (inventoryNode != null)
+        {
+            inventoryNode.Call("collect", item);
+        }
+        else
+        {
+            GD.PrintErr("Player's inventory node not found!");
+        }
         await ToSignal(GetTree().CreateTimer(3f), "timeout");
         growth_timer.Start();
     }

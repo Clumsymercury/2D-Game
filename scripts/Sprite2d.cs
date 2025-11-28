@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Sprite2d : Node2D // Class name matches the file name
+public partial class Sprite2d : Node2D 
 {
     public override void _Ready()
     {

@@ -1,0 +1,106 @@
+[gd_scene load_steps=15 format=3 uid="uid://dawiegcf7ypa4"]
+
+[ext_resource type="Script" path="res://scripts/Boss_ennemy.cs" id="1_ew50p"]
+[ext_resource type="PackedScene" uid="uid://dcitqgxbphj2d" path="res://scenes/fireball.tscn" id="2_rkj72"]
+[ext_resource type="Texture2D" uid="uid://c6j47wlj6a6wa" path="res://Assets/gfx/icon.svg" id="3_vxwbh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6wjsk"]
+radius = 75.5381
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1r0hm"]
+atlas = ExtResource("3_vxwbh")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rnbut"]
+atlas = ExtResource("3_vxwbh")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_474u4"]
+atlas = ExtResource("3_vxwbh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbgal"]
+atlas = ExtResource("3_vxwbh")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3c3x"]
+atlas = ExtResource("3_vxwbh")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7lgen"]
+atlas = ExtResource("3_vxwbh")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwvsb"]
+atlas = ExtResource("3_vxwbh")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cstbh"]
+atlas = ExtResource("3_vxwbh")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r256g"]
+atlas = ExtResource("3_vxwbh")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_08mh4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1r0hm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rnbut")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_474u4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qbgal")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n3c3x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7lgen")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwvsb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cstbh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r256g")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 100.0
+}]
+
+[node name="Boss_ennemy" type="CharacterBody2D"]
+script = ExtResource("1_ew50p")
+fireball_scene = ExtResource("2_rkj72")
+animated_sprite_path = NodePath("AnimatedSprite2D")
+timer_path = NodePath("Timer")
+fire_point_path = NodePath("Marker2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+shape = SubResource("CircleShape2D_6wjsk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_08mh4")
+animation = &"shoot"
+frame = 6
+frame_progress = 1.0
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="."]
