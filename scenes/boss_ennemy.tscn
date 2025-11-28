@@ -1,106 +1,160 @@
-[gd_scene load_steps=15 format=3 uid="uid://dawiegcf7ypa4"]
+[gd_scene load_steps=19 format=3 uid="uid://dawiegcf7ypa4"]
 
-[ext_resource type="Script" path="res://scripts/Boss_ennemy.cs" id="1_ew50p"]
+[ext_resource type="Script" path="res://scripts/BossEnnemy.cs" id="1_c22fd"]
 [ext_resource type="PackedScene" uid="uid://dcitqgxbphj2d" path="res://scenes/fireball.tscn" id="2_rkj72"]
 [ext_resource type="Texture2D" uid="uid://c6j47wlj6a6wa" path="res://Assets/gfx/icon.svg" id="3_vxwbh"]
+[ext_resource type="PackedScene" uid="uid://dt7f5qqb801yy" path="res://scenes/magic_circle.tscn" id="3_ycc3h"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_6wjsk"]
-radius = 75.5381
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1r0hm"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_we3vw"]
 atlas = ExtResource("3_vxwbh")
-region = Rect2(32, 64, 32, 32)
+region = Rect2(32, 96, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rnbut"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_tsikv"]
 atlas = ExtResource("3_vxwbh")
-region = Rect2(64, 64, 32, 32)
+region = Rect2(64, 96, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_474u4"]
-atlas = ExtResource("3_vxwbh")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qbgal"]
-atlas = ExtResource("3_vxwbh")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_n3c3x"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_174m2"]
 atlas = ExtResource("3_vxwbh")
 region = Rect2(32, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7lgen"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0ofo"]
+atlas = ExtResource("3_vxwbh")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2sdu3"]
 atlas = ExtResource("3_vxwbh")
 region = Rect2(64, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gwvsb"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_duhdm"]
 atlas = ExtResource("3_vxwbh")
 region = Rect2(64, 64, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cstbh"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1304"]
 atlas = ExtResource("3_vxwbh")
-region = Rect2(96, 64, 32, 32)
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_r256g"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wkau"]
 atlas = ExtResource("3_vxwbh")
-region = Rect2(96, 96, 32, 32)
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2x7d5"]
+atlas = ExtResource("3_vxwbh")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtbrc"]
+atlas = ExtResource("3_vxwbh")
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_08mh4"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1r0hm")
+"texture": SubResource("AtlasTexture_we3vw")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rnbut")
+"texture": SubResource("AtlasTexture_tsikv")
 }],
 "loop": true,
-"name": &"idle",
+"name": &"IDLE",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"death",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_474u4")
+"texture": SubResource("AtlasTexture_174m2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qbgal")
+"texture": SubResource("AtlasTexture_s0ofo")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_n3c3x")
+"texture": SubResource("AtlasTexture_2sdu3")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7lgen")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gwvsb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cstbh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r256g")
+"texture": SubResource("AtlasTexture_duhdm")
 }],
 "loop": false,
 "name": &"shoot",
 "speed": 100.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1304")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1wkau")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2x7d5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xtbrc")
+}],
+"loop": false,
+"name": &"take_damage",
+"speed": 5.0
 }]
 
-[node name="Boss_ennemy" type="CharacterBody2D"]
-script = ExtResource("1_ew50p")
-fireball_scene = ExtResource("2_rkj72")
-animated_sprite_path = NodePath("AnimatedSprite2D")
-timer_path = NodePath("Timer")
-fire_point_path = NodePath("Marker2D")
+[sub_resource type="CircleShape2D" id="CircleShape2D_8f0sv"]
+radius = 212.042
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-light_mask = 2
-visibility_layer = 2
-shape = SubResource("CircleShape2D_6wjsk")
+[sub_resource type="CircleShape2D" id="CircleShape2D_6wjsk"]
+radius = 10.0499
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xu6j1"]
+radius = 27.0185
+
+[node name="Boss_ennemy" type="CharacterBody2D"]
+visibility_layer = 15
+collision_layer = 3
+collision_mask = 15
+script = ExtResource("1_c22fd")
+fireball_scene = ExtResource("2_rkj72")
+magic_circle_scene = ExtResource("3_ycc3h")
+animated_sprite_path = NodePath("AnimatedSprite2D")
+timer_path = NodePath("take_damage_cooldown")
+fire_point_path = NodePath("Marker2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_08mh4")
-animation = &"shoot"
-frame = 6
-frame_progress = 1.0
+animation = &"death"
+
+[node name="Area2D" type="Area2D" parent="."]
+visibility_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_8f0sv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6wjsk")
 
 [node name="Timer" type="Timer" parent="."]
+autostart = true
 
 [node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="boss_hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boss_hitbox"]
+shape = SubResource("CircleShape2D_xu6j1")
+
+[node name="take_damage_cooldown" type="Timer" parent="."]
+autostart = true
+
+[node name="healthbar" type="ProgressBar" parent="."]
+modulate = Color(0.828915, 0, 0.00549634, 1)
+offset_left = -29.0
+offset_top = -21.0
+offset_right = 30.0
+offset_bottom = -17.0
+max_value = 2000.0
+show_percentage = false
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="boss_hitbox" to="." method="_on_boss_hitbox_body_entered"]
+[connection signal="body_exited" from="boss_hitbox" to="." method="_on_boss_hitbox_body_exited"]

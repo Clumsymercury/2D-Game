@@ -87,7 +87,7 @@ public partial class Npc : CharacterBody2D
 					break;
 			}
 		}
-		if (Input.IsActionPressed("chat") && in_chat_area)
+		if (Input.IsActionPressed("chat") && player_in_chat_zone)
 		{
 			GD.Print("chatting");
 			var dialogue = GetNode<Dialogue>("Dialogue");
@@ -148,13 +148,20 @@ public partial class Npc : CharacterBody2D
 
 	public void _on_chat_detection_area_body_entered(Node2D body)
 	{
-		player = body;
-		player_in_chat_zone = true;
+		if(body==Player)
+		{
+			GD.Print("player in npc1 chat zone");
+            player = body;
+			player_in_chat_zone = true;
+        }		
 	}
 	public void _on_chat_detection_area_body_exited(Node2D body)
 	{
-		player = body;
-		player_in_chat_zone = false;
+		if(body==Player)
+        {
+			player = body;
+			player_in_chat_zone = false;
+		}
 	}
 	public void _on_timer_timeout()
 	{
@@ -169,7 +176,7 @@ public partial class Npc : CharacterBody2D
 		is_roaming = true;
 
 		var hud = GetTree().CurrentScene.GetNode<Godot.CanvasLayer>("HUD");
-		var quest_label = hud.GetNode<Godot.Label>("quest_label");
+		var quest_label = hud.GetNode<Godot.Label>("XPBar/quest_label");
 
 		quest_label.Visible = true;
 		enemy_kill_i = 0;
@@ -181,7 +188,7 @@ public partial class Npc : CharacterBody2D
 		
 
 		var hud = GetTree().CurrentScene.GetNode<Godot.CanvasLayer>("HUD");
-		var quest_label = hud.GetNode<Godot.Label>("quest_label");
+		var quest_label = hud.GetNode<Godot.Label>("XPBar/quest_label");
 		if (has_give_mission)
 		{
 			enemy_kill_i++;

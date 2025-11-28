@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b3s1iyv52boew"]
+[gd_scene load_steps=23 format=3 uid="uid://b3s1iyv52boew"]
 
 [ext_resource type="Script" path="res://scripts/Ennemy2.cs" id="1_nx02l"]
 [ext_resource type="Texture2D" uid="uid://bchskf8cga1fo" path="res://Assets/gfx/log.png" id="2_3qdje"]
@@ -31,6 +31,18 @@ region = Rect2(160, 32, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ub1j6"]
 atlas = ExtResource("2_3qdje")
 region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mb6ce"]
+atlas = ExtResource("2_3qdje")
+region = Rect2(160, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibepw"]
+atlas = ExtResource("2_3qdje")
+region = Rect2(160, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hc82"]
+atlas = ExtResource("2_3qdje")
+region = Rect2(160, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mj7sl"]
 atlas = ExtResource("3_2hqng")
@@ -87,6 +99,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_mb6ce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibepw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4hc82")
+}],
+"loop": false,
+"name": &"knockback",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_mj7sl")
 }],
 "loop": false,
@@ -118,7 +144,7 @@ radius = 78.0256
 radius = 7.07107
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gbrp0"]
-radius = 12.1655
+radius = 14.0357
 
 [node name="ennemy_2" type="CharacterBody2D"]
 collision_layer = 3
@@ -128,7 +154,9 @@ script = ExtResource("1_nx02l")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_guk46")
-animation = &"take_damage"
+animation = &"knockback"
+frame = 2
+frame_progress = 1.0
 
 [node name="detection area" type="Area2D" parent="."]
 collision_mask = 3
@@ -154,6 +182,7 @@ offset_top = -13.0
 offset_right = 95.0
 offset_bottom = 14.0
 scale = Vector2(0.1, 0.1)
+max_value = 400.0
 show_percentage = false
 
 [connection signal="body_entered" from="detection area" to="." method="_on_detection_area_body_entered"]

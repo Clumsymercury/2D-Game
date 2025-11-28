@@ -1,4 +1,4 @@
-using Godot; 
+/*using Godot; 
 using System;
 
 public partial class CastleScene : Node2D
@@ -49,5 +49,5 @@ public partial class CastleScene : Node2D
             GetTree().ChangeSceneToFile("res://scenes/playground.tscn");
         }
     }
-}
+}*/
 

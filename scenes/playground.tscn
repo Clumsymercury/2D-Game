@@ -1,8 +1,7 @@
-[gd_scene load_steps=42 format=4 uid="uid://ddu8kfbcp2aj1"]
+[gd_scene load_steps=40 format=4 uid="uid://cp6dt7r856wsj"]
 
 [ext_resource type="Script" path="res://scenes/Playground.cs" id="1_lj04m"]
 [ext_resource type="Texture2D" uid="uid://c6j47wlj6a6wa" path="res://Assets/gfx/icon.svg" id="1_x201o"]
-[ext_resource type="PackedScene" uid="uid://djii10hxdowg0" path="res://ennemy.tscn" id="2_do2vf"]
 [ext_resource type="Script" path="res://scripts/Sprite2d.cs" id="2_vii57"]
 [ext_resource type="Script" path="res://scripts/Label.cs" id="3_6l8ic"]
 [ext_resource type="Texture2D" uid="uid://dlskumwbj6s7i" path="res://Assets/gfx/Overworld.png" id="4_egy67"]
@@ -12,12 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://cjxlsc5tnf6yt" path="res://Assets/gfx/tilesets_edit (Hilau)/6_floors.png" id="6_goc0l"]
 [ext_resource type="PackedScene" uid="uid://ca1tmo0gwa3hu" path="res://scenes/player.tscn" id="6_q8qpp"]
 [ext_resource type="Texture2D" uid="uid://c3d3x70xxsogu" path="res://Assets/gfx/objects.png" id="7_206hi"]
-[ext_resource type="PackedScene" uid="uid://b3s1iyv52boew" path="res://scenes/ennemy_2.tscn" id="7_gthob"]
 [ext_resource type="PackedScene" uid="uid://d1shxcspl81x0" path="res://scenes/hud.tscn" id="8_bqhve"]
 [ext_resource type="PackedScene" uid="uid://ddr0l1q7qx2ob" path="res://scenes/npc.tscn" id="9_qfevp"]
 [ext_resource type="PackedScene" uid="uid://dpc78a17871oq" path="res://scenes/rock.tscn" id="14_l2dqf"]
-[ext_resource type="PackedScene" uid="uid://luiw661kwf1j" path="res://scenes/npc_2.tscn" id="15_p6auf"]
-[ext_resource type="PackedScene" uid="uid://bqeynxjuba376" path="res://scenes/scene_transition_animation.tscn" id="17_xcdde"]
+[ext_resource type="PackedScene" uid="uid://u6717qvc5xm2" path="res://scenes/scene_transition_animation.tscn" id="17_xcdde"]
 [ext_resource type="PackedScene" uid="uid://bpjicmoqcfgxf" path="res://scenes/apple_tree.tscn" id="18_waf6k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0vfo1"]
@@ -7245,12 +7242,14 @@ size = Vector2(34, 17.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gg50l"]
 size = Vector2(20, 10)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c0ynu"]
+size = Vector2(77, 20)
+
 [node name="Playground" type="Node2D" node_paths=PackedStringArray("Player")]
 y_sort_enabled = true
 position = Vector2(21, 141)
 script = ExtResource("1_lj04m")
 Player = NodePath("player")
-EnnemyScene = ExtResource("2_do2vf")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 z_index = -1
@@ -7314,41 +7313,19 @@ tile_map_data = PackedByteArray("AADR/3UAAAAcAAQAAADR/3YAAAAcAAUAAADS/3UAAAAdAAQ
 tile_set = SubResource("TileSet_4hr10")
 
 [node name="player" parent="." node_paths=PackedStringArray("rock_node") instance=ExtResource("6_q8qpp")]
-position = Vector2(-1981, 1392)
+position = Vector2(586, 457)
 rock_node = NodePath("../rock")
-
-[node name="ennemy2" parent="." instance=ExtResource("5_5j6jt")]
-z_as_relative = false
-position = Vector2(743, 547)
-
-[node name="ennemy" parent="." instance=ExtResource("5_5j6jt")]
-position = Vector2(827, 580)
-
-[node name="ennemy4" parent="." instance=ExtResource("5_5j6jt")]
-position = Vector2(676, 753)
-
-[node name="ennemy5" parent="." instance=ExtResource("5_5j6jt")]
-position = Vector2(526, 881)
-
-[node name="ennemy6" parent="." instance=ExtResource("5_5j6jt")]
-position = Vector2(312, 1041)
-
-[node name="CharacterBody2D2" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("7_gthob")]
-position = Vector2(548, 532)
-Player = NodePath("../player")
+respawnMarkerPath = NodePath("../player_death_respawn")
 
 [node name="HUD" parent="." instance=ExtResource("8_bqhve")]
+visible = false
 
 [node name="npc" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("9_qfevp")]
-position = Vector2(548, 308)
+position = Vector2(531, 402)
 Player = NodePath("../player")
 
 [node name="rock" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("14_l2dqf")]
 position = Vector2(1630, 1768)
-Player = NodePath("../player")
-
-[node name="npc_2" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("15_p6auf")]
-position = Vector2(1521, 1834)
 Player = NodePath("../player")
 
 [node name="castle_entrance" type="Area2D" parent="."]
@@ -7360,7 +7337,7 @@ shape = SubResource("RectangleShape2D_dd4pf")
 
 [node name="Scene_transition_animation" parent="." instance=ExtResource("17_xcdde")]
 z_index = 100
-position = Vector2(52, -93)
+position = Vector2(54, -30)
 
 [node name="castle_exit_spawn" type="Marker2D" parent="."]
 position = Vector2(-1578, 778)
@@ -7379,12 +7356,31 @@ position = Vector2(4097, 1622)
 position = Vector2(-1680, 965)
 Player = NodePath("../player")
 
-[node name="ennemy3" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("5_5j6jt")]
-position = Vector2(-1981, 1573)
+[node name="player_death_respawn" type="Marker2D" parent="."]
+position = Vector2(823, 1360)
+
+[node name="ocean_entrance" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ocean_entrance"]
+position = Vector2(88.5, 2617)
+shape = SubResource("RectangleShape2D_c0ynu")
+
+[node name="ocean_exit_spawn" type="Marker2D" parent="."]
+position = Vector2(90, 2362)
+
+[node name="ennemy" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("5_5j6jt")]
+position = Vector2(776, 592)
 Player = NodePath("../player")
 
-[node name="EnemySpawn1" type="Marker2D" parent="."]
-position = Vector2(-1812, 1398)
+[node name="ennemy2" parent="." instance=ExtResource("5_5j6jt")]
+position = Vector2(530, 875)
+
+[node name="ennemy3" parent="." instance=ExtResource("5_5j6jt")]
+position = Vector2(274, 1083)
+
+[node name="ennemy4" parent="." instance=ExtResource("5_5j6jt")]
+position = Vector2(578, 1187)
 
 [connection signal="body_entered" from="castle_entrance" to="." method="_on_castle_entrance_body_entered"]
 [connection signal="body_entered" from="cave_entrance" to="." method="_on_cave_entrance_body_entered"]
+[connection signal="body_entered" from="ocean_entrance" to="." method="_on_ocean_entrance_body_entered"]

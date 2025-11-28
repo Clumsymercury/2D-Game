@@ -68,7 +68,10 @@ offset_right = 20.5
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="quest_label" type="Label" parent="."]
-offset_top = 39.0
-offset_right = 161.0
-offset_bottom = 206.0
+[node name="quest_label" type="Label" parent="XPBar"]
+z_index = 10
+layout_mode = 0
+offset_left = -363.46
+offset_top = -546.304
+offset_right = -202.46
+offset_bottom = -379.304

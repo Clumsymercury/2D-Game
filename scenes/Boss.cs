@@ -3,50 +3,94 @@ using System;
 
 public partial class Boss : Node2D
 {
-    private AnimationPlayer _Scene_transition_animation;
-
+    [Export] public PackedScene fireball_scene;
+    [Export] public PackedScene magic_circle_scene;
+    [Export] public float shoot_interval = 2.5f;
+    [Export] public NodePath animated_sprite_path;
+    [Export] public NodePath timer_path;
+    [Export] public NodePath fire_point_path;
     [Export] private CharacterBody2D Player;
     private Node2D player;
-    
 
-    public async override void _Ready()
+    private AnimatedSprite2D anim;
+    private Timer timer;
+    private Marker2D fire_point;
+
+    private int fireball_count = 0;
+    private const int fireballs_before_circle = 2;
+
+    private bool player_attack = false;
+
+    public override void _Ready()
     {
-        
-        
-        _Scene_transition_animation = GetNodeOrNull<AnimationPlayer>("Scene_transition_animation/AnimationPlayer");
+        anim = GetNode<AnimatedSprite2D>(animated_sprite_path);
+        timer = GetNode<Timer>(timer_path);
+        fire_point = GetNodeOrNull<Marker2D>(fire_point_path);
 
-        if (_Scene_transition_animation == null)
-        {
-            GD.PrintErr("❌ AnimationPlayer not found at 'Scene_transition_animation/AnimationPlayer'");
-            return;
-        }
-
-        var colorRect = GetNodeOrNull<ColorRect>("Scene_transition_animation/ColorRect");
-        if (colorRect == null)
-        {
-            GD.PrintErr("❌ ColorRect not found at 'Scene_transition_animation/ColorRect'");
-            return;
-        }
-
-        var color = colorRect.Color;
-        color.A = 1.0f;
-        colorRect.Color = color;
-
-        await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
-        _Scene_transition_animation.Play("fade_out");
+        timer.WaitTime = shoot_interval;
+        timer.Timeout += OnAttackTimeout;
+        timer.Start();
     }
-    public async void _on_boss_exit_body_entered(Node2D body)
+    private void OnAttackTimeout()
     {
-        var globalInstance = GetNode<globall>("/root/Globall");
-        if (body == Player)
+        if (player_attack)
         {
-            player = body;
-            globalInstance.boss_exited = true;
-            GD.Print("joueur reviens dans playground");
+            if (fireball_count < fireballs_before_circle)
+            {
+                ShootFireball();
+                fireball_count++;
+            }
+            else
+            {
+                SummonMagicCircle();
+                fireball_count = 0;
+            }
+        }
+    }
 
-            _Scene_transition_animation.Play("fade_in");     
-            await ToSignal(GetTree().CreateTimer(0.5f), "timeout");       
-            GetTree().ChangeSceneToFile("res://scenes/castle_scene1.tscn");
+    private void ShootFireball()
+    {
+        var player = GetTree().GetFirstNodeInGroup("player") as Player;
+        if (player == null)
+            return;
+
+        anim.Play("shoot");
+
+        var fireball = fireball_scene.Instantiate<Fireball>();
+        GetParent().AddChild(fireball);
+
+        Vector2 spawn_pos = fire_point != null ? fire_point.GlobalPosition : GlobalPosition;
+        fireball.GlobalPosition = spawn_pos;
+
+        Vector2 dir = (player.GlobalPosition - spawn_pos).Normalized();
+        fireball.direction = dir;
+
+        //tourne vers le joueur
+        fireball.Rotation = dir.Angle();
+    }
+    private void SummonMagicCircle()
+    {
+        var player = GetTree().GetFirstNodeInGroup("player") as Player;
+        var circle = magic_circle_scene.Instantiate<MagicCircle>();
+        GetParent().AddChild(circle);
+        circle.GlobalPosition = player.GlobalPosition; // spawn at player’s feet
+        GD.Print("Circle spawned at: ", circle.GlobalPosition);
+    }
+    private void _on_area_2d_body_entered(Node2D Body)
+    {
+        if (Body == Player)
+        {
+            GD.Print("player entered boss");
+            player = Body;
+            player_attack = true;
+        }
+    }
+    private void _on_area_2d_body_exited(Node2D Body)
+    {
+        if (Body == Player)
+        {
+            player = Body;
+            player_attack = false;
         }
     }
 }

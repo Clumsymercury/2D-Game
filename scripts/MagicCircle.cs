@@ -19,18 +19,18 @@ public partial class MagicCircle : Area2D
 
         anim_sprite.Play("magic_circle");
 
-        // Circle appears (grow animation)
+        
         Scale = Vector2.Zero;
         var tween = CreateTween();
         tween.TweenProperty(this, "scale", Vector2.One, 0.5f);
 
-        // Wait before the circle becomes "active"
+       
         await ToSignal(GetTree().CreateTimer(delayBeforeDamage), "timeout");
 
-        // Optionally change the color to indicate it's active
-        anim_sprite.Modulate = new Color(1, 0.3f, 0.3f); // reddish color
+        
+        anim_sprite.Modulate = new Color(1, 0.3f, 0.3f); 
 
-        // Damage players inside immediately
+       
         foreach (var body in GetOverlappingBodies())
         {
             if (body is Player player && IsInstanceValid(player))
@@ -41,10 +41,9 @@ public partial class MagicCircle : Area2D
             }
         }
 
-        // Wait for the rest of the duration
+        
         await ToSignal(GetTree().CreateTimer(duration - delayBeforeDamage), "timeout");
 
-        // Fade out and free
         var fadeTween = CreateTween();
         fadeTween.TweenProperty(this, "modulate:a", 0.0f, 0.4f);
         await ToSignal(fadeTween, "finished");

@@ -38,6 +38,9 @@ public partial class Player : CharacterBody2D
     [Export]
     public Resource Inv { get; set; }
 
+    [Export] public NodePath respawnMarkerPath;
+    private Marker2D respawnMarker;
+
     public override void _Ready()
     {
         anim = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
@@ -51,11 +54,13 @@ public partial class Player : CharacterBody2D
 
         globalInstance = GetNode<globall>("/root/Globall");//
         //UpdateHealth();
-        HUD hud = GetTree().Root.GetNode<HUD>("HUD"); 
+        HUD hud = GetTree().Root.GetNode<HUD>("HUD");
         if (hud != null)
             hud.UpdateHearts(health);
         else
             GD.PrintErr("HUD singleton not found!");
+            
+        respawnMarker = GetNode<Marker2D>(respawnMarkerPath);
     }
 
     public override void _Input(InputEvent @event)
@@ -111,7 +116,7 @@ public partial class Player : CharacterBody2D
             player_alive = false;
             health = 0;
             GD.Print("player is dead");
-            QueueFree();
+            Respawn();
         }
         
     }
@@ -186,7 +191,7 @@ public partial class Player : CharacterBody2D
         if (angle >= -2.0f && angle <= 0.4f)
         {
             // Derrière le joueur
-            slashAnim.ZIndex = ZIndex - 1;
+            slashAnim.ZIndex = ZIndex + 1;
         }
         else
         {
@@ -267,7 +272,7 @@ public partial class Player : CharacterBody2D
         if (hud != null)
             hud.UpdateHearts(health);
         else
-            GD.PrintErr("HUD singleton not found!");
+            GD.PrintErr("HUD singleton not found");
     }
 
     private void _on_regin_timer_timeout()
@@ -294,6 +299,29 @@ public partial class Player : CharacterBody2D
         Inv.Call("insert", item); //appel le truc an GD script
     }
     */
+    private void Respawn()
+    {
+        GD.Print("Respawning...");
+
+        health = max_health;
+        UpdateHealth();
+
+        
+        dash_in_progress = false;
+        dash_on_cooldown = false;
+        enemy_inattack_range = false;
+        enemy_attack_cooldown = false;
+
+        
+        if (respawnMarker != null)
+            GlobalPosition = respawnMarker.GlobalPosition;
+        else
+            GD.PrintErr("Respawn marker not assigned!");
+
+        player_alive = true;
+
+        GD.Print("Player respawned at ", GlobalPosition);
+    }
 }
 
  

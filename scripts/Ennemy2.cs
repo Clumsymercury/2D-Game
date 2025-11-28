@@ -3,13 +3,16 @@ using System;
 
 public partial class Ennemy2 : CharacterBody2D
 {
-
+    [Signal]
+    public delegate void Enemy_diedEventHandler();
     [Export] public float Speed = 40f;
-
+    [Export] private float KnockbackSpeed = 40f;
+    [Export] private float StunDuration = 2f;
+    private bool is_stunned = false;
     private bool player_chase = false;
     private Node2D player;
 
-    public float health = 100f;
+    public float health = 400f;
     private bool player_inattack_zone = false;
     private bool can_take_damage = true;
 
@@ -18,11 +21,15 @@ public partial class Ennemy2 : CharacterBody2D
     private bool is_dead = false;
 
     private bool is_taking_damage = false;
-    
+
     [Export] private CharacterBody2D Player;
+
+    private Vector2 spawnPosition;
+    
 
     public override void _Ready()
     {
+        spawnPosition = GlobalPosition;
         GetNode<Timer>("take_damage_cooldown").Timeout += OnTakeDamageCooldownTimeout;
         healthbar = GetNode<ProgressBar>("healthbar");
 
@@ -50,13 +57,14 @@ public partial class Ennemy2 : CharacterBody2D
         deal_with_damage();
 
 
-        if (is_dead || is_taking_damage)
+        if (is_dead || is_taking_damage|| is_stunned)
         {
-            Velocity = Vector2.Zero;
+            //Velocity = Vector2.Zero;
+            MoveAndSlide();
             return;
         }
 
-        if (player_chase && player != null)
+        if (player_chase )
         {
             GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("walk");
             Vector2 direction = (player.GlobalPosition - GlobalPosition).Normalized();
@@ -129,19 +137,30 @@ public partial class Ennemy2 : CharacterBody2D
         {
             if (can_take_damage == true)
             {
-                health = health - 20;
-                var anim_take_damage = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
-                anim_take_damage.Play("take_damage");
+                //prendre des degats pa apport au niveau                 
+                health -= globalInstance.player_damage;
 
+                var anim = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+                anim.Play("knockback"); 
                 is_taking_damage = true;
+                is_stunned = true;
+
+                // Knockback
+                Vector2 direction = (Player.GlobalPosition - GlobalPosition).Normalized();
+                Velocity = direction * -KnockbackSpeed;
+
+                
                 GetNode<Timer>("take_damage_cooldown").Start();
                 can_take_damage = false;
-                GD.Print("tree stump health = ", health);
+
+                GD.Print("TREE STUMP health = ", health);
                 if (health <= 0 && !is_dead)
                 {                   
                     is_dead = true;
                     var anim_death = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
-                    anim_death.Play("death");                                     
+                    anim_death.Play("death");
+                    EmitSignal("Enemy_died");//pour la mission
+                    globalInstance.AddXP(50);                                     
                 }
             }
         }
@@ -150,10 +169,10 @@ public partial class Ennemy2 : CharacterBody2D
     {
         var anim = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 
-        if (anim.Animation == "take_damage")
+        if (anim.Animation == "knockback")
         {
             is_taking_damage = false;
-
+            is_stunned = false;
             // remrt animation walk
             if (!is_dead)
             {
@@ -165,13 +184,13 @@ public partial class Ennemy2 : CharacterBody2D
         }
         else if (anim.Animation == "death")
         {
-            QueueFree();
+            Respawn();
         }
     }
     private void UpdateHealth()
     {
         healthbar.Value = health;
-        if (health >= 100)
+        if (health >= 400)
         {
             healthbar.Visible = false;
         }
@@ -179,6 +198,24 @@ public partial class Ennemy2 : CharacterBody2D
         {
             healthbar.Visible = true;
         }
+    }
+    private void Respawn()
+    {
+        GD.Print("Enemy2 respawn");
+
+        health = 400f;
+        is_dead = false;
+        is_taking_damage = false;
+        can_take_damage = true;
+        player_chase = true;
+        player_inattack_zone = false;
+
+        var anim = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+        anim.Play("IDLE");
+
+        GlobalPosition = spawnPosition;
+        Velocity = Vector2.Zero;
+        healthbar.Visible = false;
     }
 }
 

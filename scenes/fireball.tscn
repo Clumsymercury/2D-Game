@@ -112,9 +112,8 @@ shape = SubResource("CircleShape2D_njli2")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = -1.57095
 sprite_frames = SubResource("SpriteFrames_qn8xp")
-animation = &"fireball_impact"
+animation = &"fly"
 autoplay = "fly"
-frame = 4
-frame_progress = 1.0
+frame_progress = 0.0731168
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
