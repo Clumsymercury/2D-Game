@@ -357,7 +357,6 @@ collision_mask = 252
 script = ExtResource("1_fk38b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-z_index = 1
 sprite_frames = SubResource("SpriteFrames_g4a4l")
 animation = &"dash_right"
 

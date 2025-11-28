@@ -182,6 +182,7 @@ shape = SubResource("CircleShape2D_2772f")
 [node name="chat_detection_area" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="chat_detection_area"]
+visibility_layer = 1023
 shape = SubResource("CircleShape2D_ubakr")
 
 [node name="Timer" type="Timer" parent="."]

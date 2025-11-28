@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://bih6nivt0lml5"]
+[gd_scene load_steps=21 format=4 uid="uid://bih6nivt0lml5"]
 
 [ext_resource type="Texture2D" uid="uid://dlskumwbj6s7i" path="res://Assets/gfx/Overworld.png" id="1_3q5u4"]
 [ext_resource type="Script" path="res://scripts/Cave.cs" id="1_suwdc"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cy8yktff2rv27" path="res://Assets/gfx/Inner.png" id="4_xw8at"]
 [ext_resource type="Texture2D" uid="uid://c3d3x70xxsogu" path="res://Assets/gfx/objects.png" id="5_vjx57"]
 [ext_resource type="PackedScene" uid="uid://u6717qvc5xm2" path="res://scenes/scene_transition_animation.tscn" id="7_y0a4i"]
+[ext_resource type="PackedScene" uid="uid://ddu6o8a58nhsh" path="res://scenes/ennemy.tscn" id="8_02vbl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1q7i4"]
 texture = ExtResource("1_3q5u4")
@@ -4717,7 +4718,9 @@ tile_map_data = PackedByteArray("AADeAEwAAQAHAAUAAADQAFYAAQAHAAUAAADdAFcAAQAGAAQ
 tile_set = SubResource("TileSet_2sni2")
 
 [node name="player" parent="." instance=ExtResource("3_hpsjo")]
+y_sort_enabled = false
 position = Vector2(4122, 1564)
+respawnMarkerPath = NodePath("../Marker2D")
 
 [node name="cave_exit" type="Area2D" parent="."]
 
@@ -4726,5 +4729,11 @@ position = Vector2(4121, 1599)
 shape = SubResource("RectangleShape2D_bh7yf")
 
 [node name="Scene_transition_animation" parent="." instance=ExtResource("7_y0a4i")]
+
+[node name="ennemy" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("8_02vbl")]
+position = Vector2(4056, 1356)
+Player = NodePath("../player")
+
+[node name="Marker2D" type="Marker2D" parent="."]
 
 [connection signal="body_entered" from="cave_exit" to="." method="_on_cave_exit_body_entered"]

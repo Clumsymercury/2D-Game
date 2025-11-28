@@ -13,7 +13,7 @@ public partial class Rock : Node2D
     {
         if (Player.Position.Y > Position.Y)
 		{
-			ZIndex = -1;
+			ZIndex = 0;
 		}
 		else
 		{

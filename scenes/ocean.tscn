@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://cgumjyc8rlgcm"]
+[gd_scene load_steps=38 format=4 uid="uid://c31hoojvk5lfb"]
 
 [ext_resource type="Script" path="res://scripts/Ocean.cs" id="1_j6jlv"]
 [ext_resource type="Texture2D" uid="uid://c6j47wlj6a6wa" path="res://Assets/gfx/icon.svg" id="2_52ctc"]
@@ -8718,8 +8718,8 @@ tile_map_data = PackedByteArray("AADR/3UAAAAcAAQAAADR/3YAAAAcAAUAAADS/3UAAAAdAAQ
 tile_set = SubResource("TileSet_4hr10")
 
 [node name="player" parent="." instance=ExtResource("11_aqt0q")]
-z_index = -1
-position = Vector2(93, 2718)
+position = Vector2(84, 3338)
+respawnMarkerPath = NodePath("../Marker2D")
 
 [node name="ocean_exit" type="Area2D" parent="."]
 
@@ -8729,5 +8729,8 @@ shape = SubResource("RectangleShape2D_3t2gb")
 
 [node name="Scene_transition_animation" parent="." instance=ExtResource("17_7njsl")]
 position = Vector2(945, 1171)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(193, 3241)
 
 [connection signal="body_entered" from="ocean_exit" to="." method="_on_ocean_exit_body_entered"]

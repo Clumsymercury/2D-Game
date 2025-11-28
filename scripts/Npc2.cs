@@ -18,9 +18,6 @@ public partial class Npc2 : CharacterBody2D
 			GD.Print("chatting");
 			var dialogue = GetNode<Dialogue>("Dialogue");
 			dialogue.Start();
-
-			
-
 		}
 
 		if (Player.Position.Y > Position.Y)
@@ -34,6 +31,7 @@ public partial class Npc2 : CharacterBody2D
 	}
 	public void _on_area_2d_mouse_entered()
 	{
+		GD.Print("dddd");
 		in_chat_area = true;
 	}
 	public void _on_area_2d_mouse_exited()

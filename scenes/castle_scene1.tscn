@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://d3keg4k28jowr"]
+[gd_scene load_steps=35 format=4 uid="uid://dqiicn862bg2f"]
 
 [ext_resource type="Script" path="res://scenes/CastleScene1.cs" id="1_s3oxf"]
 [ext_resource type="Texture2D" uid="uid://c6j47wlj6a6wa" path="res://Assets/gfx/icon.svg" id="2_o15xb"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c3d3x70xxsogu" path="res://Assets/gfx/objects.png" id="8_nr8wb"]
 [ext_resource type="Texture2D" uid="uid://cjxlsc5tnf6yt" path="res://Assets/gfx/tilesets_edit (Hilau)/6_floors.png" id="9_8g6bq"]
 [ext_resource type="PackedScene" uid="uid://ca1tmo0gwa3hu" path="res://scenes/player.tscn" id="11_5nvd0"]
+[ext_resource type="PackedScene" uid="uid://dawiegcf7ypa4" path="res://scenes/boss_ennemy.tscn" id="12_yktic"]
 [ext_resource type="PackedScene" uid="uid://u6717qvc5xm2" path="res://scenes/scene_transition_animation.tscn" id="17_w1wpo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0vfo1"]
@@ -7343,8 +7344,8 @@ tile_map_data = PackedByteArray("AADR/3UAAAAcAAQAAADR/3YAAAAcAAUAAADS/3UAAAAdAAQ
 tile_set = SubResource("TileSet_4hr10")
 
 [node name="player" parent="." instance=ExtResource("11_5nvd0")]
-z_index = -1
 position = Vector2(-1502, 555)
+respawnMarkerPath = NodePath("../Marker2D2")
 
 [node name="castle_exit" type="Area2D" parent="."]
 
@@ -7362,6 +7363,13 @@ shape = SubResource("RectangleShape2D_8skm1")
 
 [node name="boss_exit_spawn" type="Marker2D" parent="."]
 position = Vector2(-979, -97)
+
+[node name="Boss_ennemy" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("12_yktic")]
+position = Vector2(-1479, 449)
+Player = NodePath("../player")
+
+[node name="Marker2D2" type="Marker2D" parent="."]
+position = Vector2(-1497, 585)
 
 [connection signal="body_entered" from="castle_exit" to="." method="_on_castle_exit_body_entered"]
 [connection signal="body_entered" from="boss_entrance" to="." method="_on_boss_entrance_body_entered"]
