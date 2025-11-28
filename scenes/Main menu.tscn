@@ -1,0 +1,72 @@
+[gd_scene load_steps=5 format=3 uid="uid://daaeyl2gny1on"]
+
+[ext_resource type="Script" path="res://scenes/MainMenu.cs" id="1_7jfj2"]
+[ext_resource type="Texture2D" uid="uid://d3lqytcf26uar" path="res://pictures/Screenshot 2025-11-03 235633.png" id="2_lp0iq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xd15x"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_56blf"]
+texture = ExtResource("2_lp0iq")
+axis_stretch_vertical = 2
+
+[node name="MainMenu" type="Node"]
+script = ExtResource("1_7jfj2")
+
+[node name="button_manager" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Start" type="Button" parent="button_manager"]
+layout_mode = 0
+offset_left = 484.0
+offset_top = 444.0
+offset_right = 694.0
+offset_bottom = 532.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_xd15x")
+text = "Start Game
+"
+
+[node name="Options" type="Button" parent="button_manager"]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 446.0
+offset_right = 272.0
+offset_bottom = 534.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_xd15x")
+text = "Options
+"
+
+[node name="Exit" type="Button" parent="button_manager"]
+layout_mode = 0
+offset_left = 883.0
+offset_top = 443.0
+offset_right = 1093.0
+offset_bottom = 531.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_xd15x")
+text = "Exit
+"
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_56blf")
+
+[connection signal="pressed" from="button_manager/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="button_manager/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="button_manager/Exit" to="." method="_on_exit_pressed"]

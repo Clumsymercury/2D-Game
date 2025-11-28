@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://luiw661kwf1j" path="res://scenes/npc_2.tscn" id="15_p6auf"]
 [ext_resource type="PackedScene" uid="uid://u6717qvc5xm2" path="res://scenes/scene_transition_animation.tscn" id="17_xcdde"]
 [ext_resource type="PackedScene" uid="uid://bpjicmoqcfgxf" path="res://scenes/apple_tree.tscn" id="18_waf6k"]
+[ext_resource type="AudioStream" uid="uid://bp61qm81bat0p" path="res://music/Small Sleepy Town Maj.mp3" id="19_ve8is"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0vfo1"]
 
@@ -7238,9 +7239,6 @@ sources/0 = SubResource("TileSetAtlasSource_m653q")
 sources/1 = SubResource("TileSetAtlasSource_iy3na")
 sources/2 = SubResource("TileSetAtlasSource_dcnmn")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dd4pf"]
-size = Vector2(34, 17.5)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gg50l"]
 size = Vector2(20, 10)
 
@@ -7248,7 +7246,7 @@ size = Vector2(20, 10)
 size = Vector2(80, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yvhtw"]
-size = Vector2(25, 39.75)
+size = Vector2(25, 18.875)
 
 [node name="Playground" type="Node2D" node_paths=PackedStringArray("Player")]
 y_sort_enabled = true
@@ -7340,7 +7338,7 @@ Player = NodePath("../player")
 
 [node name="player" parent="." node_paths=PackedStringArray("rock_node") instance=ExtResource("6_q8qpp")]
 z_index = -1
-position = Vector2(-1542, 949)
+position = Vector2(-1545, 885)
 rock_node = NodePath("../rock")
 
 [node name="CharacterBody2D2" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("7_gthob")]
@@ -7361,19 +7359,9 @@ Player = NodePath("../player")
 position = Vector2(1521, 1834)
 Player = NodePath("../player")
 
-[node name="castle_entrance" type="Area2D" parent="."]
-position = Vector2(-1482, 855)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="castle_entrance"]
-position = Vector2(-61, -9.75)
-shape = SubResource("RectangleShape2D_dd4pf")
-
 [node name="Scene_transition_animation" parent="." instance=ExtResource("17_xcdde")]
 z_index = 100
-position = Vector2(58, -145)
-
-[node name="castle_exit_spawn" type="Marker2D" parent="."]
-position = Vector2(-1575, 776)
+position = Vector2(326, 3)
 
 [node name="cave_entrance" type="Area2D" parent="."]
 position = Vector2(4121, 1646)
@@ -7404,13 +7392,18 @@ position = Vector2(137, 2559)
 position = Vector2(-625, 442)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="castle_entrance1"]
-position = Vector2(-832, 492)
+position = Vector2(-918, 402)
 shape = SubResource("RectangleShape2D_yvhtw")
 
 [node name="castle_exit1_spawn" type="Marker2D" parent="."]
 position = Vector2(-1576, 807)
 
-[connection signal="body_entered" from="castle_entrance" to="." method="_on_castle_entrance_body_entered"]
+[node name="SmallSleepyTownMaj" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_ve8is")
+volume_db = -35.692
+autoplay = true
+parameters/looping = true
+
 [connection signal="body_entered" from="cave_entrance" to="." method="_on_cave_entrance_body_entered"]
 [connection signal="body_entered" from="ocean_entrance" to="." method="_on_ocean_entrance_body_entered"]
 [connection signal="body_entered" from="castle_entrance1" to="." method="_on_castle_entrance_1_body_entered"]

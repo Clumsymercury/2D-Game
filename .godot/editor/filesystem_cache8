@@ -1,10 +1,7 @@
 cffcf7cc5eb03ca20a5c49cce30ef619
-::res://::1762089469
-bushleaves.aseprite::CompressedTexture2D::1221208055413169800::1760986216::1761513114::0::::<><>::
-ennemy.tscn::PackedScene::7808010157384716029::1761517987::0::1::::<><>::res://scripts/Ennemy.cs<>uid://bq77svxq6cjc::::res://Assets/gfx/slime.png
-Main boss.aseprite::CompressedTexture2D::4988187336734219584::1760986216::1761513114::0::::<><>::
-Main boss.asepriteWOW.aseprite::CompressedTexture2D::3680036102408107659::1760986216::1761513114::0::::<><>::
-node_2d.tscn::PackedScene::9153287448663201283::1761517988::0::1::::<><>::
+::res://::1764349899
+ennemy.tscn::PackedScene::7808010157384716029::1762646704::0::1::::<><>::res://scripts/Ennemy.cs<>uid://bq77svxq6cjc::::res://Assets/gfx/slime.png
+node_2d.tscn::PackedScene::9153287448663201283::1762646704::0::1::::<><>::
 README.md::TextFile::-1::1758056354::0::1::::<><>::
 README.ru.md::TextFile::-1::1758056354::0::1::::<><>::
 ::res://addons/::1758056354
@@ -91,55 +88,63 @@ texture_rect.gd::GDScript::-1::1760616648::0::1::::<><>::
 ::res://dialogue/::1760616648
 NPC_dialogue1.json::JSON::-1::1760616648::0::1::::<><>::
 villagerNPC_dialogue.json::JSON::-1::1760616648::0::1::::<><>::
-::res://Global/::1760986201
+::res://Global/::1762207070
 global_save_manager.cs::CSharpScript::-1::1760986201::0::1::::<><>::
 ::res://GUI/::1759676143
-::res://GUI/PauseMenu/::1761517990
+::res://GUI/PauseMenu/::1762646706
 pause_menu.cs::CSharpScript::-1::1760986201::0::1::::<><>::
-pause_menu.tscn::PackedScene::1606141990038586144::1761517990::0::1::::<><>::res://GUI/PauseMenu/pause_menu.cs
-::res://Levels/::1761517993
-01.tscn::PackedScene::4074238307467133382::1761517992::0::1::::<><>::uid://dlskumwbj6s7i::::res://Assets/gfx/Overworld.png<>uid://dmhx3d6cixhic::::res://Assets/gfx/cave.png<>uid://bwplrc7gvn6u8::::res://Levels/LevelTransition.tscn
-02.tscn::PackedScene::778193809232327890::1761517991::0::1::::<><>::uid://dlskumwbj6s7i::::res://Assets/gfx/Overworld.png<>uid://dmhx3d6cixhic::::res://Assets/gfx/cave.png<>uid://bwplrc7gvn6u8::::res://Levels/LevelTransition.tscn
-LevelTransition.tscn::PackedScene::3962239310239189181::1761517988::0::1::::<><>::res://scripts/LevelTransition.cs
-Tutorial.tscn::PackedScene::4877410864886172791::1761517993::0::1::::<><>::uid://bwplrc7gvn6u8::::res://Levels/LevelTransition.tscn
-::res://Resources/::1761517987
+pause_menu.tscn::PackedScene::1606141990038586144::1762646706::0::1::::<><>::res://GUI/PauseMenu/pause_menu.cs
+::res://Levels/::1762646709
+01.tscn::PackedScene::4074238307467133382::1762646709::0::1::::<><>::uid://dlskumwbj6s7i::::res://Assets/gfx/Overworld.png<>uid://dmhx3d6cixhic::::res://Assets/gfx/cave.png<>uid://bwplrc7gvn6u8::::res://Levels/LevelTransition.tscn
+02.tscn::PackedScene::778193809232327890::1762646707::0::1::::<><>::uid://dlskumwbj6s7i::::res://Assets/gfx/Overworld.png<>uid://dmhx3d6cixhic::::res://Assets/gfx/cave.png<>uid://bwplrc7gvn6u8::::res://Levels/LevelTransition.tscn
+LevelTransition.tscn::PackedScene::3962239310239189181::1762646704::0::1::::<><>::res://scripts/LevelTransition.cs
+Tutorial.tscn::PackedScene::4877410864886172791::1762646709::0::1::::<><>::uid://bwplrc7gvn6u8::::res://Levels/LevelTransition.tscn
+::res://music/::1762207139
+KB - Regular_Battle_theme_Final.mp3::AudioStreamMP3::8887399147215467633::1762195460::1762206368::1::::<><>::
+Small Sleepy Town Maj.mp3::AudioStreamMP3::3504856945595273917::1762206825::1762206363::1::::<><>::
+::res://pictures/::1762210732
+Screenshot 2025-11-03 235633.png::CompressedTexture2D::9148273160474609705::1762210716::1762210732::1::::<><>::
+::res://Resources/::1762646704
 Apple.tres::Resource::917887588814955177::1750414227::0::1::::<><>::res://scripts/inventory_item.cs
-pickup_item.tscn::PackedScene::414893572306601392::1761517987::0::1::::<><>::
-::res://scenes/::1762089942
+pickup_item.tscn::PackedScene::414893572306601392::1762646704::0::1::::<><>::
+::res://scenes/::1762646716
 apple_collectable.tscn::PackedScene::4144952595723427252::1760986201::0::1::::<><>::res://scripts/AppleCollectable.cs<>uid://b7gy6uijg3ti4::::res://Assets/gfx/apple-icon.png
 apple_tree.tscn::PackedScene::3458322698217373555::1760986201::0::1::::<><>::res://scripts/AppleTree.cs<>uid://cyw1cllytr7se::::res://Assets/gfx/survivalgame-appletree.png
-Boss.cs::CSharpScript::-1::1761518066::0::1::::<><>::
-boss.tscn::PackedScene::6117743618992085011::1761518000::0::1::::<><>::res://scenes/Boss.cs<>uid://c6j47wlj6a6wa::::res://Assets/gfx/icon.svg<>res://scripts/Sprite2d.cs<>res://scripts/Label.cs<>uid://dlskumwbj6s7i::::res://Assets/gfx/Overworld.png<>uid://dmhx3d6cixhic::::res://Assets/gfx/cave.png<>uid://cy8yktff2rv27::::res://Assets/gfx/Inner.png<>uid://c3d3x70xxsogu::::res://Assets/gfx/objects.png<>uid://cgpjkm65e224u::::res://Assets/gfx/tilesets_edit (Hilau)/2_indoors.png<>uid://cjxlsc5tnf6yt::::res://Assets/gfx/tilesets_edit (Hilau)/6_floors.png<>uid://ca1tmo0gwa3hu::::res://scenes/player.tscn<>uid://b3s1iyv52boew::::res://scenes/ennemy_2.tscn<>uid://d1shxcspl81x0::::res://scenes/hud.tscn<>uid://ddr0l1q7qx2ob::::res://scenes/npc.tscn<>uid://dpc78a17871oq::::res://scenes/rock.tscn<>uid://luiw661kwf1j::::res://scenes/npc_2.tscn<>uid://u6717qvc5xm2::::res://scenes/scene_transition_animation.tscn
+Boss.cs::CSharpScript::-1::1761518066::0::1::::<>Node2D<>::
+boss.tscn::PackedScene::6117743618992085011::1762646713::0::1::::<><>::res://scenes/Boss.cs<>uid://c6j47wlj6a6wa::::res://Assets/gfx/icon.svg<>res://scripts/Sprite2d.cs<>res://scripts/Label.cs<>uid://dlskumwbj6s7i::::res://Assets/gfx/Overworld.png<>uid://dmhx3d6cixhic::::res://Assets/gfx/cave.png<>uid://cy8yktff2rv27::::res://Assets/gfx/Inner.png<>uid://c3d3x70xxsogu::::res://Assets/gfx/objects.png<>uid://cgpjkm65e224u::::res://Assets/gfx/tilesets_edit (Hilau)/2_indoors.png<>uid://cjxlsc5tnf6yt::::res://Assets/gfx/tilesets_edit (Hilau)/6_floors.png<>uid://ca1tmo0gwa3hu::::res://scenes/player.tscn<>uid://b3s1iyv52boew::::res://scenes/ennemy_2.tscn<>uid://d1shxcspl81x0::::res://scenes/hud.tscn<>uid://ddr0l1q7qx2ob::::res://scenes/npc.tscn<>uid://dpc78a17871oq::::res://scenes/rock.tscn<>uid://luiw661kwf1j::::res://scenes/npc_2.tscn<>uid://u6717qvc5xm2::::res://scenes/scene_transition_animation.tscn
 bushleaves.aseprite::CompressedTexture2D::8431548679802028285::1762089942::1762089943::1::::<><>::
 CastleScene1.cs::CSharpScript::-1::1761518067::0::1::::<>Node2D<>::
-castle_scene1.tscn::PackedScene::9145448573115727469::1761517997::0::1::::<><>::res://scenes/CastleScene1.cs<>uid://c6j47wlj6a6wa::::res://Assets/gfx/icon.svg<>res://scripts/Sprite2d.cs<>res://scripts/Label.cs<>uid://dlskumwbj6s7i::::res://Assets/gfx/Overworld.png<>uid://dmhx3d6cixhic::::res://Assets/gfx/cave.png<>uid://cy8yktff2rv27::::res://Assets/gfx/Inner.png<>uid://c3d3x70xxsogu::::res://Assets/gfx/objects.png<>uid://cjxlsc5tnf6yt::::res://Assets/gfx/tilesets_edit (Hilau)/6_floors.png<>uid://ca1tmo0gwa3hu::::res://scenes/player.tscn<>uid://u6717qvc5xm2::::res://scenes/scene_transition_animation.tscn
-cave.tscn::PackedScene::2964287972697124556::1761517998::0::1::::<><>::uid://dlskumwbj6s7i::::res://Assets/gfx/Overworld.png<>res://scripts/Cave.cs<>uid://dmhx3d6cixhic::::res://Assets/gfx/cave.png<>uid://ca1tmo0gwa3hu::::res://scenes/player.tscn<>uid://cy8yktff2rv27::::res://Assets/gfx/Inner.png<>uid://c3d3x70xxsogu::::res://Assets/gfx/objects.png<>uid://u6717qvc5xm2::::res://scenes/scene_transition_animation.tscn
-character_body_2d.tscn::PackedScene::1529390050618641905::1761517988::0::1::::<><>::res://scripts/Player.cs<>uid://bdubbdtbrruop::::res://Assets/gfx/character.png
+castle_scene1.tscn::PackedScene::9145448573115727469::1762646710::0::1::::<><>::res://scenes/CastleScene1.cs<>uid://c6j47wlj6a6wa::::res://Assets/gfx/icon.svg<>res://scripts/Sprite2d.cs<>res://scripts/Label.cs<>uid://dlskumwbj6s7i::::res://Assets/gfx/Overworld.png<>uid://dmhx3d6cixhic::::res://Assets/gfx/cave.png<>uid://cy8yktff2rv27::::res://Assets/gfx/Inner.png<>uid://c3d3x70xxsogu::::res://Assets/gfx/objects.png<>uid://cjxlsc5tnf6yt::::res://Assets/gfx/tilesets_edit (Hilau)/6_floors.png<>uid://ca1tmo0gwa3hu::::res://scenes/player.tscn<>uid://u6717qvc5xm2::::res://scenes/scene_transition_animation.tscn
+cave.tscn::PackedScene::2964287972697124556::1762646712::0::1::::<><>::uid://dlskumwbj6s7i::::res://Assets/gfx/Overworld.png<>res://scripts/Cave.cs<>uid://dmhx3d6cixhic::::res://Assets/gfx/cave.png<>uid://ca1tmo0gwa3hu::::res://scenes/player.tscn<>uid://cy8yktff2rv27::::res://Assets/gfx/Inner.png<>uid://c3d3x70xxsogu::::res://Assets/gfx/objects.png<>uid://u6717qvc5xm2::::res://scenes/scene_transition_animation.tscn<>uid://dyvefvknn3js0::::res://music/KB - Regular_Battle_theme_Final.mp3
+character_body_2d.tscn::PackedScene::1529390050618641905::1762646704::0::1::::<><>::res://scripts/Player.cs<>uid://bdubbdtbrruop::::res://Assets/gfx/character.png
 dialogue.tscn::PackedScene::548406720265423744::1760616648::0::1::::<><>::uid://cqg6udh30t7ah::::res://Assets/gfx/inventory-slot.png<>res://scripts/Dialogue.cs
-ennemy.tscn::PackedScene::7413025099643260991::1761517987::0::1::::<><>::res://scripts/Ennemy.cs<>uid://djii10hxdowg0::::res://ennemy.tscn<>uid://bq77svxq6cjc::::res://Assets/gfx/slime.png<>uid://th2ycptl5vgt::::res://Assets/gfx/slime_white.png
-ennemy_2.tscn::PackedScene::4390461327694746638::1761517987::0::1::::<><>::res://scripts/Ennemy2.cs<>uid://bchskf8cga1fo::::res://Assets/gfx/log.png<>uid://dvuocv6ysh67p::::res://Assets/gfx/log_white_2.png
+ennemy.tscn::PackedScene::7413025099643260991::1762646704::0::1::::<><>::res://scripts/Ennemy.cs<>uid://djii10hxdowg0::::res://ennemy.tscn<>uid://bq77svxq6cjc::::res://Assets/gfx/slime.png<>uid://th2ycptl5vgt::::res://Assets/gfx/slime_white.png
+ennemy_2.tscn::PackedScene::4390461327694746638::1762646704::0::1::::<><>::res://scripts/Ennemy2.cs<>uid://bchskf8cga1fo::::res://Assets/gfx/log.png<>uid://dvuocv6ysh67p::::res://Assets/gfx/log_white_2.png
 HUD.cs::CSharpScript::-1::1761163378::0::1::::<>CanvasLayer<>::
-hud.tscn::PackedScene::9021797011001137703::1761517998::0::1::::<><>::uid://koxd0uo0pvhy::::res://Assets/gfx/Pixel Heart Sprite full.png<>res://scenes/HUD.cs<>uid://dotqajk1hg3x8::::res://Assets/gfx/Pixel Heart Sprite half.png<>uid://c65q4v1efghme::::res://Assets/gfx/Pixel Heart Sprite empty.png
+hud.tscn::PackedScene::9021797011001137703::1762646712::0::1::::<><>::uid://koxd0uo0pvhy::::res://Assets/gfx/Pixel Heart Sprite full.png<>res://scenes/HUD.cs<>uid://dotqajk1hg3x8::::res://Assets/gfx/Pixel Heart Sprite half.png<>uid://c65q4v1efghme::::res://Assets/gfx/Pixel Heart Sprite empty.png
 Main boss.aseprite::CompressedTexture2D::2517711426527989735::1762089857::1762089858::1::::<><>::
+Main menu.tscn::PackedScene::7159548397861616097::1762646716::0::1::::<><>::res://scenes/MainMenu.cs<>uid://d3lqytcf26uar::::res://pictures/Screenshot 2025-11-03 235633.png
+MainMenu.cs::CSharpScript::-1::1762211181::0::1::::<>Node<>::
 Npc.cs::CSharpScript::-1::1760986201::0::1::::<>CharacterBody2D<>::
 npc.tscn::PackedScene::7406461964164756993::1760986201::0::1::::<><>::uid://c3jhi1cfk7qlm::::res://Assets/gfx/Human-Worker-Red.png<>res://scenes/Npc.cs<>uid://h2wgcodsywku::::res://scenes/dialogue.tscn
 npc_2.tscn::PackedScene::813891535815938273::1760616648::0::1::::<><>::res://scripts/Npc2.cs<>uid://h2wgcodsywku::::res://scenes/dialogue.tscn<>uid://c3jhi1cfk7qlm::::res://Assets/gfx/Human-Worker-Red.png
-ocean.tscn::PackedScene::5236007925526471920::1761517995::0::1::::<><>::res://scripts/Ocean.cs<>uid://c6j47wlj6a6wa::::res://Assets/gfx/icon.svg<>res://scripts/Sprite2d.cs<>res://scripts/Label.cs<>uid://dlskumwbj6s7i::::res://Assets/gfx/Overworld.png<>uid://dmhx3d6cixhic::::res://Assets/gfx/cave.png<>uid://cy8yktff2rv27::::res://Assets/gfx/Inner.png<>uid://c3d3x70xxsogu::::res://Assets/gfx/objects.png<>uid://dj2mu2c245efr::::res://Assets/gfx/tilesets_edit (Hilau)/3_plants.png<>uid://cjxlsc5tnf6yt::::res://Assets/gfx/tilesets_edit (Hilau)/6_floors.png<>uid://bl0d7o3b1xgfk::::res://Assets/gfx/tilesets_edit (Hilau)/7_grass_cliff.png<>uid://ca1tmo0gwa3hu::::res://scenes/player.tscn<>uid://u6717qvc5xm2::::res://scenes/scene_transition_animation.tscn
-player.tscn::PackedScene::4827691015630234834::1761517988::0::1::::<><>::res://scripts/Player.cs<>uid://blcqd7alqkofl::::res://Assets/gfx/NewPlayer.png<>uid://cbocmc7cn0b3t::::res://Assets/gfx/New Piskel2.png
-Playground.cs::CSharpScript::-1::1761518064::0::1::::<>Node2D<>::
-playground.tscn::PackedScene::7413137920048470676::1761518063::0::1::::<><>::res://scenes/Playground.cs<>uid://c6j47wlj6a6wa::::res://Assets/gfx/icon.svg<>res://scripts/Sprite2d.cs<>res://scripts/Label.cs<>uid://dlskumwbj6s7i::::res://Assets/gfx/Overworld.png<>uid://ddu6o8a58nhsh::::res://scenes/ennemy.tscn<>uid://dmhx3d6cixhic::::res://Assets/gfx/cave.png<>uid://cy8yktff2rv27::::res://Assets/gfx/Inner.png<>uid://cjxlsc5tnf6yt::::res://Assets/gfx/tilesets_edit (Hilau)/6_floors.png<>uid://ca1tmo0gwa3hu::::res://scenes/player.tscn<>uid://c3d3x70xxsogu::::res://Assets/gfx/objects.png<>uid://b3s1iyv52boew::::res://scenes/ennemy_2.tscn<>uid://d1shxcspl81x0::::res://scenes/hud.tscn<>uid://ddr0l1q7qx2ob::::res://scenes/npc.tscn<>uid://dpc78a17871oq::::res://scenes/rock.tscn<>uid://luiw661kwf1j::::res://scenes/npc_2.tscn<>uid://u6717qvc5xm2::::res://scenes/scene_transition_animation.tscn<>uid://bpjicmoqcfgxf::::res://scenes/apple_tree.tscn
+ocean.tscn::PackedScene::5236007925526471920::1762646716::0::1::::<><>::res://scripts/Ocean.cs<>uid://c6j47wlj6a6wa::::res://Assets/gfx/icon.svg<>res://scripts/Sprite2d.cs<>res://scripts/Label.cs<>uid://dlskumwbj6s7i::::res://Assets/gfx/Overworld.png<>uid://dmhx3d6cixhic::::res://Assets/gfx/cave.png<>uid://cy8yktff2rv27::::res://Assets/gfx/Inner.png<>uid://c3d3x70xxsogu::::res://Assets/gfx/objects.png<>uid://dj2mu2c245efr::::res://Assets/gfx/tilesets_edit (Hilau)/3_plants.png<>uid://cjxlsc5tnf6yt::::res://Assets/gfx/tilesets_edit (Hilau)/6_floors.png<>uid://bl0d7o3b1xgfk::::res://Assets/gfx/tilesets_edit (Hilau)/7_grass_cliff.png<>uid://ca1tmo0gwa3hu::::res://scenes/player.tscn<>uid://bp61qm81bat0p::::res://music/Small Sleepy Town Maj.mp3<>uid://u6717qvc5xm2::::res://scenes/scene_transition_animation.tscn
+Options.tscn::PackedScene::6657425371253023366::1762646716::0::1::::<><>::
+player.tscn::PackedScene::4827691015630234834::1762646704::0::1::::<><>::res://scripts/Player.cs<>uid://blcqd7alqkofl::::res://Assets/gfx/NewPlayer.png<>uid://cbocmc7cn0b3t::::res://Assets/gfx/New Piskel2.png
+Playground.cs::CSharpScript::-1::1762816121::0::1::::<>Node2D<>::
+playground.tscn::PackedScene::7413137920048470676::1762646706::0::1::::<><>::res://scenes/Playground.cs<>uid://c6j47wlj6a6wa::::res://Assets/gfx/icon.svg<>res://scripts/Sprite2d.cs<>res://scripts/Label.cs<>uid://dlskumwbj6s7i::::res://Assets/gfx/Overworld.png<>uid://ddu6o8a58nhsh::::res://scenes/ennemy.tscn<>uid://dmhx3d6cixhic::::res://Assets/gfx/cave.png<>uid://cy8yktff2rv27::::res://Assets/gfx/Inner.png<>uid://cjxlsc5tnf6yt::::res://Assets/gfx/tilesets_edit (Hilau)/6_floors.png<>uid://ca1tmo0gwa3hu::::res://scenes/player.tscn<>uid://c3d3x70xxsogu::::res://Assets/gfx/objects.png<>uid://b3s1iyv52boew::::res://scenes/ennemy_2.tscn<>uid://d1shxcspl81x0::::res://scenes/hud.tscn<>uid://ddr0l1q7qx2ob::::res://scenes/npc.tscn<>uid://dpc78a17871oq::::res://scenes/rock.tscn<>uid://luiw661kwf1j::::res://scenes/npc_2.tscn<>uid://u6717qvc5xm2::::res://scenes/scene_transition_animation.tscn<>uid://bpjicmoqcfgxf::::res://scenes/apple_tree.tscn<>uid://bp61qm81bat0p::::res://music/Small Sleepy Town Maj.mp3
 rock.tscn::PackedScene::8218225377789532644::1760616648::0::1::::<><>::res://scripts/Rock.cs<>uid://c3d3x70xxsogu::::res://Assets/gfx/objects.png
-scene_transition_animation.tscn::PackedScene::1469763663968652863::1761517995::0::1::::<><>::res://scripts/SceneTransitionAnimation.cs
+scene_transition_animation.tscn::PackedScene::1469763663968652863::1762646709::0::1::::<><>::res://scripts/SceneTransitionAnimation.cs
 ::res://scripts/::1760989260
 AppleCollectable.cs::CSharpScript::-1::1760986201::0::1::::<>Area2D<>::
 AppleTree.cs::CSharpScript::-1::1760986201::0::1::::<>Node2D<>::
-CastleScene.cs::CSharpScript::-1::1760986201::0::1::::<>Node2D<>::
+CastleScene.cs::CSharpScript::-1::1762194066::0::1::::<>Node2D<>::
 Cave.cs::CSharpScript::-1::1760986201::0::1::::<>Node2D<>::
 CollisionShape2d.cs::CSharpScript::-1::1755094635::0::1::::<>CollisionShape2D<>::
 Dialogue.cs::CSharpScript::-1::1760616648::0::1::::<>Control<>::
 Ennemy2.cs::CSharpScript::-1::1760986201::0::1::::<>CharacterBody2D<>::
 Ennemy.cs::CSharpScript::-1::1760986201::0::1::::<>CharacterBody2D<>::
-globall.cs::CSharpScript::-1::1761518065::0::1::::<>Node<>::
+globall.cs::CSharpScript::-1::1762193911::0::1::::<>Node<>::
 inventory_item.cs::CSharpScript::-1::1750414227::0::1::::<><>::
 Label.cs::CSharpScript::-1::1755094635::0::1::::<>Label<>::
 LevelTransition.cs::CSharpScript::-1::1760986201::0::1::::<><>::
@@ -150,3 +155,4 @@ Player.cs::CSharpScript::-1::1760986201::0::1::::<>CharacterBody2D<>::
 Rock.cs::CSharpScript::-1::1760616648::0::1::::<>Node2D<>::
 SceneTransitionAnimation.cs::CSharpScript::-1::1760986201::0::1::::<>Node2D<>::
 Sprite2d.cs::CSharpScript::-1::1759356976::0::1::::<>Node2D<>::
+::res://sound/::1762193378

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://cgumjyc8rlgcm"]
+[gd_scene load_steps=39 format=4 uid="uid://cgumjyc8rlgcm"]
 
 [ext_resource type="Script" path="res://scripts/Ocean.cs" id="1_j6jlv"]
 [ext_resource type="Texture2D" uid="uid://c6j47wlj6a6wa" path="res://Assets/gfx/icon.svg" id="2_52ctc"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cjxlsc5tnf6yt" path="res://Assets/gfx/tilesets_edit (Hilau)/6_floors.png" id="9_n032k"]
 [ext_resource type="Texture2D" uid="uid://bl0d7o3b1xgfk" path="res://Assets/gfx/tilesets_edit (Hilau)/7_grass_cliff.png" id="10_viny6"]
 [ext_resource type="PackedScene" uid="uid://ca1tmo0gwa3hu" path="res://scenes/player.tscn" id="11_aqt0q"]
+[ext_resource type="AudioStream" uid="uid://bp61qm81bat0p" path="res://music/Small Sleepy Town Maj.mp3" id="14_anxbt"]
 [ext_resource type="PackedScene" uid="uid://u6717qvc5xm2" path="res://scenes/scene_transition_animation.tscn" id="17_7njsl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0vfo1"]
@@ -8729,5 +8730,11 @@ shape = SubResource("RectangleShape2D_3t2gb")
 
 [node name="Scene_transition_animation" parent="." instance=ExtResource("17_7njsl")]
 position = Vector2(945, 1171)
+
+[node name="SmallSleepyTownMaj" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_anxbt")
+volume_db = -35.364
+autoplay = true
+parameters/looping = true
 
 [connection signal="body_entered" from="ocean_exit" to="." method="_on_ocean_exit_body_entered"]

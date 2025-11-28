@@ -19,6 +19,7 @@ public partial class globall : Node
 
     public bool boss_exited = false;
 
+
     public void AddXP(int amount)
     {
         player_xp += amount;

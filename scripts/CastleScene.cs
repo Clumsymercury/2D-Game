@@ -41,7 +41,7 @@ public partial class CastleScene : Node2D
         if (body == Player)
         {
             player = body;
-            globalInstance.castle_exited = true;
+            globalInstance.castle1_exited = true;
             GD.Print("joueur reviens dans playground");
 
             _Scene_transition_animation.Play("fade_in");     
